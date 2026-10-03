@@ -1,0 +1,13 @@
+# Changes here will be overwritten by Copier
+_commit: 51b8509
+_src_path: https://github.com/ZeCroque/BGSModProjectTemplate.git
+ai_voices: false
+fomod: false
+game: Skyrim
+game_path: H:/Games/steamapps/common/Skyrim Special Edition
+gpt: false
+my_games_path: F:/Documents/My Games
+notebook_path: C:/Users/ZeCroque/Nextcloud/Workspace
+project_name: SoulCairnPatches
+project_shortname: SCP
+voices: true

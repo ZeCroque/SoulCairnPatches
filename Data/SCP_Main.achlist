@@ -1,0 +1,6 @@
+[
+    "Data\\Scripts\\SCP_Utility_ModInfo.pex",
+    "Data\\Scripts\\SCP_UpdateQuest_UpdateQuestScript.pex",
+    "Data\\Scripts\\SCP_UpdateQuest_PlayerAliasScript.pex",
+    "Data\\SEQ\\SoulCairnPatches.seq"
+]
