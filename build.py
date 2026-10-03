@@ -1,6 +1,6 @@
 from CIScripts import package
 
-def main():
+def main():   
     package.Package()
 
 if __name__ == "__main__":

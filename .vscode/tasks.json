@@ -44,12 +44,22 @@
 "-all",
 "-optimize"
             ],
-            "problemMatcher": [],
+            "problemMatcher": {
+                "owner": "external",
+                "fileLocation": "absolute",
+                "pattern": {
+                  "regexp": "^(.*)\\((\\d+),(\\d+)\\):(.*)",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "message": 4,
+                }
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
-        },
+        }
         {
             "label": "Package",
             "type": "process",
@@ -73,17 +83,6 @@
             }
         },
         {
-            "label": "Generate SEQ",
-            "type": "process",
-            "command": "py",
-            "args": ["-3", "./CIScripts/seq.py"],
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
             "label": "Add Strings to achlist",
             "type": "process",
             "command": "py",
@@ -94,5 +93,16 @@
                 "isDefault": true
             }
         }
+        ,{
+  "label": "Generate SEQ",
+  "type": "process",
+  "command": "py",
+  "args": ["-3", "./CIScripts/seq.py"],
+  "problemMatcher": [],
+  "group": {
+      "kind": "build",
+      "isDefault": true
+  }
+}
     ]
 }

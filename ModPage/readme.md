@@ -50,7 +50,7 @@ This mod consists of two main files :
 - Use the Mod Manager Download button. Install and enable the file(s) in your favorite mod manager (ModOrganizer2 is my personal preference).
 
 **Manual**
-- Extract the required files (cf. `5. MOD CONTENT`) from the archive to your Data folder and activate them in the in-game Creations menu. 
+- Extract the required files (cf. `5. MOD CONTENT`) from the archive to your Data folder and activate them in the in-game Creations menu.
 
 ## 7. COMPATIBILITY
 
@@ -76,6 +76,7 @@ _template_
 - WWise
 - FooBar2000
 - xTranslator
+- Fomod Creation Kit
 - Bethesda Archive Extractor
 - Champollion
 - Gimp & Photopea
@@ -97,7 +98,7 @@ CREATIONS_FOOTER
 . FEEDBACK & MORE
 
 Found a bug or have an idea for new features? Needs more info? Go to my Discord server!
-Discord: https://discord.gg/K9Jk4y2tjJ
+Discord: https://discord.gg/K9Jk4y2tjJ 
 
 Want to know more about me and my other projects? Check my links!
 LinkTree: https://linktr.ee/zecroque

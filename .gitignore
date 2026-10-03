@@ -3,6 +3,7 @@
 *.wem
 *.fuz
 *.seq
+!Data/SEQ/{{project_name}}.seq
 *.esm
 *_AF.esp
 *.esl

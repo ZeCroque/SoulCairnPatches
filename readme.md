@@ -52,7 +52,7 @@ This mod consists of two main files :
 - Use the Mod Manager Download button. Install and enable the file(s) in your favorite mod manager (ModOrganizer2 is my personal preference).
 
 **Manual**
-- Extract the required files (cf. `5. MOD CONTENT`) from the archive to your Data folder and activate them in the in-game Creations menu. 
+- Extract the required files (cf. `5. MOD CONTENT`) from the archive to your Data folder and activate them in the in-game Creations menu.
 
 ## 7. COMPATIBILITY
 
@@ -78,6 +78,7 @@ _template_
 - WWise
 - FooBar2000
 - xTranslator
+- Fomod Creation Kit
 - Bethesda Archive Extractor
 - Champollion
 - Gimp & Photopea
