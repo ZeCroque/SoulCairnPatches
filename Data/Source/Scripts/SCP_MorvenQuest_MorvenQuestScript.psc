@@ -4,10 +4,6 @@ ObjectReference Property SCP_MorvenStroudVendorChestREF Auto
 LeveledItem Property SCP_ModdedItemsLL Auto
 Perk Property SCP_MorvenPriceAdjustmentPerk Auto
 
-Event OnInit()
-    Update()
-EndEvent
-
 Function Update()
     Actor playerRef = Game.GetPlayer()
     If (!playerRef.HasPerk(SCP_MorvenPriceAdjustmentPerk))
