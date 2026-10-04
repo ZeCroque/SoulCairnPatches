@@ -1,0 +1,17 @@
+{
+  "rules": [
+    {
+      "friendlyName": "Adds soul gem shards to every soul cairn boss chests",
+      "conditions": {
+        "containers": [ "0x40A5|Dawnguard.esm", "0x15461|Dawnguard.esm", "0x1692A|Dawnguard.esm", "0x15FDF|Dawnguard.esm", "0x1611F|Dawnguard.esm" ],
+        "bypassUnsafeContainers": true
+      },
+      "changes": [
+        {
+          "add": [ "0xFB07|SoulCairnPatches.esp" ],
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
