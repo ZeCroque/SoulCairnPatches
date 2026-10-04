@@ -15,8 +15,14 @@ Function Update()
     EndIf
 
     SCP_ModdedItemsLL.Revert()
+    
     LeveledItem necromanticGrimoires = Game.GetFormFromFile(0x947, "ccvsvsse003-necroarts.esl") as LeveledItem
     If(necromanticGrimoires)
         SCP_ModdedItemsLL.AddForm(necromanticGrimoires, 1, 3)
     EndIf
+
+    Book tirashanTPSpellbook = Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book
+    If(tirashanTPSpellbook)
+        SCP_ModdedItemsLL.AddForm(tirashanTPSpellbook, 1, 1)
+    EndIf    
 EndFunction
