@@ -3,6 +3,8 @@ Scriptname SCP_MorvenQuest_MorvenQuestScript extends Quest
 ObjectReference Property SCP_MorvenStroudVendorChestREF Auto
 LeveledItem Property SCP_ModdedItemsLL Auto
 Perk Property SCP_MorvenPriceAdjustmentPerk Auto
+LeveledItem Property SCP_LootSoulGemShards75 Auto
+LeveledItem Property DLC1DeathItemSoulman Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -21,4 +23,6 @@ Function Update()
     If(tirashanTPSpellbook)
         SCP_ModdedItemsLL.AddForm(tirashanTPSpellbook, 1, 1)
     EndIf    
+
+    DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
 EndFunction

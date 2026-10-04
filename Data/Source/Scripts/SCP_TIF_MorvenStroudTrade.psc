@@ -6,7 +6,7 @@ Scriptname SCP_TIF_MorvenStroudTrade Extends TopicInfo Hidden
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-    SEA_BarterFunctions.SetCurrency(DLC1FoodSoulHusk)
+SEA_BarterFunctions.SetCurrency(SCP_SoulGemShards)
     (akSpeakerRef as Actor).ShowBarterMenu()
 
 	;Skyrim Souls compatibility
@@ -21,4 +21,4 @@ EndFunction
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
-Form Property DLC1FoodSoulHusk Auto
+Form Property SCP_SoulGemShards Auto
