@@ -6,6 +6,8 @@ LeveledItem Property SCP_ModdedItemsLL Auto
 Perk Property SCP_MorvenPriceAdjustmentPerk Auto
 LeveledItem Property SCP_LootSoulGemShards75 Auto
 LeveledItem Property DLC1DeathItemSoulman Auto
+Quest Property DLC1SoulCairnHuskMerchant Auto
+Bool Property DialogQuestHasBeenStopped Auto
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -34,6 +36,13 @@ Function Update()
         EndIf    
 
         DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
+
+        DLC1SoulCairnHuskMerchant.Stop()
+        DialogQuestHasBeenStopped = True
+    ElseIf(DialogQuestHasBeenStopped)
+        DLC1SoulCairnHuskMerchant.Start()
+        DLC1SoulCairnHuskMerchant.SetStage(10)
+        DialogQuestHasBeenStopped = False
     EndIf
 
     GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
