@@ -9,6 +9,16 @@ LeveledItem Property DLC1DeathItemSoulman Auto
 Quest Property DLC1SoulCairnHuskMerchant Auto
 Bool Property DialogQuestHasBeenStopped Auto
 
+ObjectReference Property DLC01SoulCairnReaperAltarTrigREF Auto
+ObjectReference Property DLC01SoulGemReaperFragment01REF Auto
+ObjectReference Property DLC01SoulGemReaperFragment02REF Auto
+ObjectReference Property DLC01SoulGemReaperFragment03REF Auto
+Static Property SCP_ReaperSoulGemStatic Auto
+ObjectReference Property SCP_ReaperSoulGemStaticREF Auto
+ObjectReference Property SC_alterREF Auto
+Activator Property SCP_ReaperAltarTrig Auto
+ObjectReference Property SCP_ReaperAltarTrigREF Auto
+
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
 GlobalVariable Property SCP_GrimShardsCount Auto
@@ -43,6 +53,16 @@ Function Update()
         DLC1SoulCairnHuskMerchant.Start()
         DLC1SoulCairnHuskMerchant.SetStage(10)
         DialogQuestHasBeenStopped = False
+    EndIf
+
+    If(!DLC01SoulCairnReaperAltarTrigREF.IsEnabled() && !SCP_ReaperSoulGemStaticREF)
+        DLC01SoulGemReaperFragment01REF.Disable()
+        DLC01SoulGemReaperFragment02REF.Disable()
+        DLC01SoulGemReaperFragment03REF.Disable()
+        SCP_ReaperSoulGemStaticREF = DLC01SoulGemReaperFragment01REF.PlaceAtMe(SCP_ReaperSoulGemStatic, 1, True)
+        SCP_ReaperSoulGemStaticREF.SetAngle(0.0, 0.0, 90.0)        
+        SCP_ReaperAltarTrigREF = SC_alterREF.PlaceAtMe(SCP_ReaperAltarTrig, 1, True)
+        SC_alterREF.Disable()
     EndIf
 
     GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
