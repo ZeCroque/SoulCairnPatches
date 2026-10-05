@@ -1,5 +1,6 @@
 Scriptname SCP_MorvenQuest_MorvenQuestScript extends Quest Conditional
 
+Bool Property CurrencySwapperInstalled Auto Conditional
 ObjectReference Property SCP_MorvenStroudVendorChestREF Auto
 LeveledItem Property SCP_ModdedItemsLL Auto
 Perk Property SCP_MorvenPriceAdjustmentPerk Auto
@@ -12,23 +13,28 @@ GlobalVariable Property SCP_GrimShardsCount Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
-    If (!playerRef.HasPerk(SCP_MorvenPriceAdjustmentPerk))
-        playerREF.AddPerk(SCP_MorvenPriceAdjustmentPerk)
+
+    CurrencySwapperInstalled = SEA_BarterFunctions.SetCurrency(Game.GetForm(0x104B3F)) ;Fork misc item, just for testing purpose, it will return true if the mod is installed
+    SEA_BarterFunctions.ResetCurrency()
+    If(CurrencySwapperInstalled)
+        If (!playerRef.HasPerk(SCP_MorvenPriceAdjustmentPerk))
+            playerREF.AddPerk(SCP_MorvenPriceAdjustmentPerk)
+        EndIf
+
+        SCP_ModdedItemsLL.Revert()
+        
+        LeveledItem necromanticGrimoires = Game.GetFormFromFile(0x947, "ccvsvsse003-necroarts.esl") as LeveledItem
+        If(necromanticGrimoires)
+            SCP_ModdedItemsLL.AddForm(necromanticGrimoires, 1, 3)
+        EndIf
+
+        Book tirashanTPSpellbook = Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book
+        If(tirashanTPSpellbook)
+            SCP_ModdedItemsLL.AddForm(tirashanTPSpellbook, 1, 1)
+        EndIf    
+
+        DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
     EndIf
-
-    SCP_ModdedItemsLL.Revert()
-    
-    LeveledItem necromanticGrimoires = Game.GetFormFromFile(0x947, "ccvsvsse003-necroarts.esl") as LeveledItem
-    If(necromanticGrimoires)
-        SCP_ModdedItemsLL.AddForm(necromanticGrimoires, 1, 3)
-    EndIf
-
-    Book tirashanTPSpellbook = Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book
-    If(tirashanTPSpellbook)
-        SCP_ModdedItemsLL.AddForm(tirashanTPSpellbook, 1, 1)
-    EndIf    
-
-    DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
 
     GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
     If(GrimShard)
