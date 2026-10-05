@@ -1,10 +1,14 @@
-Scriptname SCP_MorvenQuest_MorvenQuestScript extends Quest
+Scriptname SCP_MorvenQuest_MorvenQuestScript extends Quest Conditional
 
 ObjectReference Property SCP_MorvenStroudVendorChestREF Auto
 LeveledItem Property SCP_ModdedItemsLL Auto
 Perk Property SCP_MorvenPriceAdjustmentPerk Auto
 LeveledItem Property SCP_LootSoulGemShards75 Auto
 LeveledItem Property DLC1DeathItemSoulman Auto
+
+Form Property GrimShard Auto
+Bool Property GrimModInstalled Auto Conditional
+GlobalVariable Property SCP_GrimShardsCount Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -25,4 +29,12 @@ Function Update()
     EndIf    
 
     DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
+
+    GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
+    If(GrimShard)
+        GrimModInstalled = True
+        SCP_GrimShardsCount.SetValueInt(playerRef.GetItemCount(GrimShard))
+    Else
+        GrimModInstalled = False
+    EndIf
 EndFunction
