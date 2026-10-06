@@ -18,6 +18,8 @@ Event OnActivate(ObjectReference akActivator)
             morvenQuestScript.SCP_ReaperSoulGemStaticREF.Enable()
             FXAmbBeamDust01REF.Enable()           
             morvenQuestScript.SC_alterREF.Enable()  
+            morvenQuestScript.SCP_ReaperTeleportTrigREF.Enable()
+            
             Disable()
             Debug.Trace("Portal ready")
         Else
