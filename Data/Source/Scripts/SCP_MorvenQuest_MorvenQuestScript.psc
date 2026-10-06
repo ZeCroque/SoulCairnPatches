@@ -21,6 +21,7 @@ Activator Property SCP_ReaperAltarTrig Auto
 ObjectReference Property SCP_ReaperAltarTrigREF Auto
 Activator Property SCP_ReaperTeleportTrig Auto
 ObjectReference Property SCP_ReaperTeleportTrigREF Auto
+ObjectReference Property TirashanTeleportMarker Auto
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -43,10 +44,9 @@ Function Update()
             SCP_ModdedItemsLL.AddForm(necromanticGrimoires, 1, 3)
         EndIf
 
-        Book tirashanTPSpellbook = Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book
-        If(tirashanTPSpellbook)
-            SCP_ModdedItemsLL.AddForm(tirashanTPSpellbook, 1, 1)
-        EndIf    
+        If(SCP_ReaperTeleportTrigREF && SCP_ReaperTeleportTrigREF.IsEnabled())
+            SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book, 1, 1)
+        EndIf
 
         DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
 
@@ -58,7 +58,10 @@ Function Update()
         DialogQuestHasBeenStopped = False
     EndIf
 
-    LoadNonPersistentReferencesAndInit() ; This call is here in case the user install the mod while inside the cell
+    TirashanTeleportMarker = Game.GetFormFromFile(0x1B40A0, "Tirashan.esp") as ObjectReference
+    If(TirashanTeleportMarker)
+        LoadNonPersistentReferencesAndInit() ; This call is here in case the user install the mod while inside the cell
+    EndIf
 
     GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
     If(GrimShard)
@@ -91,7 +94,7 @@ Function ReplacePropsIfAppropriate()
         SCP_ReaperSoulGemStaticREF.SetAngle(0.0, 0.0, 90.0)  
 
         SCP_ReaperTeleportTrigREF = TeleportMarkerREF.PlaceAtMe(SCP_ReaperTeleportTrig, 1, True)
-        (SCP_ReaperTeleportTrigREF as DLC01TeleportScript).teleportGoalMarker = Game.GetFormFromFile(0x1B40A0, "Tirashan.esp") as ObjectReference
+        (SCP_ReaperTeleportTrigREF as DLC01TeleportScript).teleportGoalMarker = TirashanTeleportMarker
         SCP_ReaperTeleportTrigREF.Disable()
         
         SCP_ReaperAltarTrigREF = SC_alterREF.PlaceAtMe(SCP_ReaperAltarTrig, 1, True)

@@ -19,7 +19,7 @@ Event OnActivate(ObjectReference akActivator)
             FXAmbBeamDust01REF.Enable()           
             morvenQuestScript.SC_alterREF.Enable()  
             morvenQuestScript.SCP_ReaperTeleportTrigREF.Enable()
-            
+            morvenQuestScript.SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book, 1, 1)
             Disable()
             Debug.Trace("Portal ready")
         Else
