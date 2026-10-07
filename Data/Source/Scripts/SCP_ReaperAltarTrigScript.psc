@@ -1,7 +1,7 @@
 Scriptname SCP_ReaperAltarTrigScript extends ObjectReference  
 
 SoulGem Property SCP_ReaperSoulGem Auto
-SoulGem Property SCP_ReaperSoulGemFilled Auto
+MiscObject Property SCP_ReaperSoulGemFilledMisc Auto
 Quest Property SCP_MorvenQuest Auto
 ObjectReference Property FXAmbBeamDust01REF Auto
 
@@ -9,12 +9,12 @@ Event OnActivate(ObjectReference akActivator)
     Actor playerRef = Game.GetPlayer()
     SCP_MorvenQuest_MorvenQuestScript morvenQuestScript = SCP_MorvenQuest as SCP_MorvenQuest_MorvenQuestScript
     
-    If(playerRef.GetItemCount(SCP_ReaperSoulGem) == 0 && playerRef.GetItemCount(SCP_ReaperSoulGemFilled) == 0)       
+    If(playerRef.GetItemCount(SCP_ReaperSoulGem) == 0 && playerRef.GetItemCount(SCP_ReaperSoulGemFilledMisc) == 0)       
         morvenQuestScript.SCP_ReaperSoulGemStaticREF.Disable()        
-        playerRef.AddItem(SCP_ReaperSoulGem)
+        playerRef.AddItem((morvenQuestScript.GetAlias(4) as ReferenceAlias).GetRef())
     Else
-        If(playerRef.GetItemCount(SCP_ReaperSoulGemFilled))
-            playerRef.RemoveItem(SCP_ReaperSoulGemFilled)          
+        If(playerRef.GetItemCount(SCP_ReaperSoulGemFilledMisc))
+            playerRef.RemoveItem(SCP_ReaperSoulGemFilledMisc)          
             morvenQuestScript.SCP_ReaperSoulGemStaticREF.Enable()
             FXAmbBeamDust01REF.Enable()           
             morvenQuestScript.SC_alterREF.Enable()  
@@ -24,8 +24,10 @@ Event OnActivate(ObjectReference akActivator)
             Debug.Trace("Portal ready")
         Else
             Debug.Trace("Soul empty or too small")
-            playerRef.RemoveItem(SCP_ReaperSoulGem)
-            playerRef.AddItem(SCP_ReaperSoulGem)            
+            playerRef.RemoveItem(SCP_ReaperSoulGem)    
+            ObjectReference emptySoulGem = (morvenQuestScript.GetAlias(7) as ReferenceAlias).GetRef().PlaceAtMe(SCP_ReaperSoulGem, 1, True)
+            (morvenQuestScript.GetAlias(4) as ReferenceAlias).ForceRefTo(emptySoulGem)
+            playerRef.AddItem(emptySoulGem)            
         EndIf
     EndIf
 EndEvent
