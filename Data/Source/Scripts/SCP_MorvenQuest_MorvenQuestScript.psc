@@ -24,6 +24,7 @@ ObjectReference Property SCP_ReaperTeleportTrigREF Auto
 ObjectReference Property TirashanTeleportMarker Auto
 ObjectReference Property FXDLC1SCTransportal Auto
 ObjectReference Property SCP_TirashanDoorREF Auto
+Perk Property SCP_TirashanExitOptionsPerk Auto
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -62,6 +63,10 @@ Function Update()
 
     TirashanTeleportMarker = Game.GetFormFromFile(0x27434, "Tirashan.esp") as ObjectReference
     If(TirashanTeleportMarker)
+        If (!playerRef.HasPerk(SCP_TirashanExitOptionsPerk))
+            playerREF.AddPerk(SCP_TirashanExitOptionsPerk)
+        EndIf
+
         ;Register OnCellAttach callback on Tirashan door
         TirashanTeleportMarker.Disable()
         (GetAlias(8) as ReferenceAlias).ForceRefTo(TirashanTeleportMarker)
