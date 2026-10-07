@@ -25,6 +25,8 @@ ObjectReference Property TirashanTeleportMarker Auto
 ObjectReference Property FXDLC1SCTransportal Auto
 ObjectReference Property SCP_TirashanDoorREF Auto
 Perk Property SCP_TirashanExitOptionsPerk Auto
+ObjectReference Property TirashansSkyrimPortal Auto
+ObjectReference Property NorExtWallBgHenge01 Auto
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -71,8 +73,16 @@ Function Update()
         TirashanTeleportMarker.Disable()
         (GetAlias(8) as ReferenceAlias).ForceRefTo(TirashanTeleportMarker)
 
+        ;Register OnCellAttach callback on Tirashan's Skyrim door
+        TirashansSkyrimPortal = Game.GetFormFromFile(0x2C922, "Tirashan.esp") as ObjectReference
+        TirashansSkyrimPortal.Disable()
+        (GetAlias(9) as ReferenceAlias).ForceRefTo(TirashansSkyrimPortal)
+
+        (Game.GetFormFromFile(0x1F30FC, "Tirashan.esp") as ObjectReference).Disable() ;Map Marker
+
         LoadNonPersistentReferencesAndInit() ; This calls are here in case the user install the mod while inside the cell
         LoadTirashanNonPersistentReferencesAndInit()
+        LoadSkyrimNonPersistentReferencesAndInit()
     EndIf
 
     GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
@@ -120,5 +130,21 @@ Function LoadTirashanNonPersistentReferencesAndInit()
     EndIf
     If(FXDLC1SCTransportal && FXDLC1SCTransportal.Is3DLoaded()) ;Try to move only if prop loading was successful
         SCP_TirashanDoorREF.MoveTo(FXDLC1SCTransportal, 0.0, 0.0, 200.0)
+    EndIf
+EndFunction
+
+Function LoadSkyrimNonPersistentReferencesAndInit()
+    If(!NorExtWallBgHenge01)      
+        NorExtWallBgHenge01 = Game.GetFormFromFile(0x2C91C, "Tirashan.esp") as ObjectReference        
+    EndIf
+    If(NorExtWallBgHenge01)
+        NorExtWallBgHenge01.Disable()
+        (Game.GetFormFromFile(0x2C91D, "Tirashan.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x2C91E, "Tirashan.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x2C91F, "Tirashan.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x2C920, "Tirashan.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x2C921, "Tirashan.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x2C923, "Tirashan.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x2C924, "Tirashan.esp") as ObjectReference).Disable()
     EndIf
 EndFunction
