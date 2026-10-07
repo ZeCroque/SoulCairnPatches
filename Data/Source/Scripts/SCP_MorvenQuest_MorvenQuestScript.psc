@@ -119,6 +119,6 @@ Function LoadTirashanNonPersistentReferencesAndInit()
         FXDLC1SCTransportal = Game.GetFormFromFile(0x27433, "Tirashan.esp") as ObjectReference        
     EndIf
     If(FXDLC1SCTransportal && FXDLC1SCTransportal.Is3DLoaded()) ;Try to move only if prop loading was successful
-        SCP_TirashanDoorREF.MoveTo(FXDLC1SCTransportal)
+        SCP_TirashanDoorREF.MoveTo(FXDLC1SCTransportal, 0.0, 0.0, 200.0)
     EndIf
 EndFunction
