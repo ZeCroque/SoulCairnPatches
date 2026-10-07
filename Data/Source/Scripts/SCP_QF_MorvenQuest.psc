@@ -2,9 +2,9 @@
 ;NEXT FRAGMENT INDEX 2
 Scriptname SCP_QF_MorvenQuest Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY ReaperLairPersistentREF
+;BEGIN ALIAS PROPERTY MorvenVendorContainerREF
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
+ReferenceAlias Property Alias_MorvenVendorContainerREF Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY EmptyReaperSoulGem
@@ -12,14 +12,9 @@ ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
 ReferenceAlias Property Alias_EmptyReaperSoulGem Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY FilledReaperSoulGem
+;BEGIN ALIAS PROPERTY Player
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_FilledReaperSoulGem Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Morven
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Morven Auto
+ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Reaper
@@ -27,14 +22,24 @@ ReferenceAlias Property Alias_Morven Auto
 ReferenceAlias Property Alias_Reaper Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY MorvenVendorContainerREF
+;BEGIN ALIAS PROPERTY Morven
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_MorvenVendorContainerREF Auto
+ReferenceAlias Property Alias_Morven Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Player
+;BEGIN ALIAS PROPERTY ReaperLairPersistentREF
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
+ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY FilledReaperSoulGem
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_FilledReaperSoulGem Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY PORTAL
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_PORTAL Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_0

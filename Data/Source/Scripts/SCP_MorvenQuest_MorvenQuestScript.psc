@@ -22,6 +22,8 @@ ObjectReference Property SCP_ReaperAltarTrigREF Auto
 Activator Property SCP_ReaperTeleportTrig Auto
 ObjectReference Property SCP_ReaperTeleportTrigREF Auto
 ObjectReference Property TirashanTeleportMarker Auto
+ObjectReference Property FXDLC1SCTransportal Auto
+ObjectReference Property SCP_TirashanDoorREF Auto
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -58,9 +60,14 @@ Function Update()
         DialogQuestHasBeenStopped = False
     EndIf
 
-    TirashanTeleportMarker = Game.GetFormFromFile(0x1B40A0, "Tirashan.esp") as ObjectReference
+    TirashanTeleportMarker = Game.GetFormFromFile(0x27434, "Tirashan.esp") as ObjectReference
     If(TirashanTeleportMarker)
-        LoadNonPersistentReferencesAndInit() ; This call is here in case the user install the mod while inside the cell
+        ;Register OnCellAttach callback on Tirashan door
+        TirashanTeleportMarker.Disable()
+        (GetAlias(8) as ReferenceAlias).ForceRefTo(TirashanTeleportMarker)
+
+        LoadNonPersistentReferencesAndInit() ; This calls are here in case the user install the mod while inside the cell
+        LoadTirashanNonPersistentReferencesAndInit()
     EndIf
 
     GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
@@ -99,5 +106,14 @@ Function ReplacePropsIfAppropriate()
         
         SCP_ReaperAltarTrigREF = SC_alterREF.PlaceAtMe(SCP_ReaperAltarTrig, 1, True)
         SC_alterREF.Disable()            
+    EndIf
+EndFunction
+
+Function LoadTirashanNonPersistentReferencesAndInit()
+    If(!FXDLC1SCTransportal)      
+        FXDLC1SCTransportal = Game.GetFormFromFile(0x27433, "Tirashan.esp") as ObjectReference        
+    EndIf
+    If(FXDLC1SCTransportal && FXDLC1SCTransportal.Is3DLoaded()) ;Try to move only if prop loading was successful
+        SCP_TirashanDoorREF.MoveTo(FXDLC1SCTransportal)
     EndIf
 EndFunction
