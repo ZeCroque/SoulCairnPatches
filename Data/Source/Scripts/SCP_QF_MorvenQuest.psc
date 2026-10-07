@@ -2,6 +2,11 @@
 ;NEXT FRAGMENT INDEX 2
 Scriptname SCP_QF_MorvenQuest Extends Quest Hidden
 
+;BEGIN ALIAS PROPERTY MorvenVendorContainer
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_MorvenVendorContainer Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY ReaperLairPersistentREF
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
@@ -12,9 +17,9 @@ ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
 ReferenceAlias Property Alias_Morven Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY MorvenVendorContainer
+;BEGIN ALIAS PROPERTY Reaper
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_MorvenVendorContainer Auto
+ReferenceAlias Property Alias_Reaper Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_0

@@ -85,7 +85,7 @@ Function LoadNonPersistentReferencesAndInit()
 EndFunction
 
 Function ReplacePropsIfAppropriate()
-    If(!DLC01SoulCairnReaperAltarTrigREF.IsEnabled() && (!SCP_ReaperSoulGemStaticREF || !SCP_ReaperSoulGemStaticREF.IsEnabled()))
+    If(((GetAlias(3) as ReferenceAlias).GetRef() as Actor).IsDead() && (!SCP_ReaperSoulGemStaticREF || !SCP_ReaperSoulGemStaticREF.IsEnabled()))
         DLC01SoulGemReaperFragment01REF.Disable()
         DLC01SoulGemReaperFragment02REF.Disable()
         DLC01SoulGemReaperFragment03REF.Disable()     
