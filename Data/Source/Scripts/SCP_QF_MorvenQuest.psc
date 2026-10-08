@@ -7,34 +7,14 @@ Scriptname SCP_QF_MorvenQuest Extends Quest Hidden
 ReferenceAlias Property Alias_PORTAL Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Reaper
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Reaper Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY MorvenVendorContainerREF
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_MorvenVendorContainerREF Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY ReaperLairPersistentREF
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY EmptyReaperSoulGem
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_EmptyReaperSoulGem Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SkyrimPortal
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SkyrimPortal Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY Morven
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Morven Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY MorvenVendorSit
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_MorvenVendorSit Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Player
@@ -42,9 +22,34 @@ ReferenceAlias Property Alias_Morven Auto
 ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY ReaperLairPersistentREF
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Reaper
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Reaper Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SkyrimPortal
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SkyrimPortal Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY FilledReaperSoulGem
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_FilledReaperSoulGem Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY MorvenVendorContainerREF
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_MorvenVendorContainerREF Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY EmptyReaperSoulGem
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_EmptyReaperSoulGem Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_0

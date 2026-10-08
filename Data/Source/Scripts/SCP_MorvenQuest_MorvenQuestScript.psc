@@ -23,10 +23,13 @@ Activator Property SCP_ReaperTeleportTrig Auto
 ObjectReference Property SCP_ReaperTeleportTrigREF Auto
 ObjectReference Property TirashanTeleportMarker Auto
 ObjectReference Property FXDLC1SCTransportal Auto
+ObjectReference Property DremoraMerchantREF Auto
 ObjectReference Property SCP_TirashanDoorREF Auto
 Perk Property SCP_TirashanExitOptionsPerk Auto
 ObjectReference Property TirashansSkyrimPortal Auto
 ObjectReference Property NorExtWallBgHenge01 Auto
+Bool Property TirashanHasBeenInit Auto Conditional
+Bool Property MorvenHasMoved Auto Conditional
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -107,7 +110,7 @@ Function LoadNonPersistentReferencesAndInit()
 EndFunction
 
 Function ReplacePropsIfAppropriate()
-    If(((GetAlias(3) as ReferenceAlias).GetRef() as Actor).IsDead() && (!SCP_ReaperSoulGemStaticREF || !SCP_ReaperSoulGemStaticREF.IsEnabled()))
+    If(((GetAlias(3) as ReferenceAlias).GetRef() as Actor).IsDead() && !SCP_ReaperSoulGemStaticREF)     
         DLC01SoulGemReaperFragment01REF.Disable()
         DLC01SoulGemReaperFragment02REF.Disable()
         DLC01SoulGemReaperFragment03REF.Disable()     
@@ -130,6 +133,13 @@ Function LoadTirashanNonPersistentReferencesAndInit()
     EndIf
     If(FXDLC1SCTransportal && FXDLC1SCTransportal.Is3DLoaded()) ;Try to move only if prop loading was successful
         SCP_TirashanDoorREF.MoveTo(FXDLC1SCTransportal, 0.0, 0.0, 200.0)
+        DremoraMerchantREF = Game.GetFormFromFile(0x89F66, "Tirashan.esp") as ObjectReference 
+        DremoraMerchantREF.Disable()        
+        (GetAlias(10) as ReferenceAlias).ForceRefTo(Game.GetFormFromFile(0x89F63, "Tirashan.esp") as ObjectReference) 
+        TirashanHasBeenInit = True
+    EndIf
+    If(MorvenHasMoved)
+        (GetAlias(0) as ReferenceAlias).GetRef().MoveTo(DremoraMerchantREF)
     EndIf
 EndFunction
 
