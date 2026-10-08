@@ -30,6 +30,7 @@ ObjectReference Property TirashansSkyrimPortal Auto
 ObjectReference Property NorExtWallBgHenge01 Auto
 Bool Property TirashanHasBeenInit Auto Conditional
 Bool Property MorvenHasMoved Auto Conditional
+Bool Property ReapersDead Auto
 
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
@@ -66,6 +67,17 @@ Function Update()
         DialogQuestHasBeenStopped = False
     EndIf
 
+    GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
+    If(GrimShard)
+        GrimModInstalled = True
+        SCP_GrimShardsCount.SetValueInt(playerRef.GetItemCount(GrimShard))
+    Else
+        GrimModInstalled = False
+        If(((GetAlias(3) as ReferenceAlias).GetRef() as Actor).IsDead())
+            ReapersDead = True
+        EndIf
+    EndIf
+
     TirashanTeleportMarker = Game.GetFormFromFile(0x27434, "Tirashan.esp") as ObjectReference
     If(TirashanTeleportMarker)
         If (!playerRef.HasPerk(SCP_TirashanExitOptionsPerk))
@@ -88,13 +100,7 @@ Function Update()
         LoadSkyrimNonPersistentReferencesAndInit()
     EndIf
 
-    GrimShard = Game.GetFormFromFile(0x2111AA, "GrimmerReaper.esp")
-    If(GrimShard)
-        GrimModInstalled = True
-        SCP_GrimShardsCount.SetValueInt(playerRef.GetItemCount(GrimShard))
-    Else
-        GrimModInstalled = False
-    EndIf
+    (GetAlias(1) as SCP_MorvenQuest_PlayerAliasScript).RegisterForInventoryEvents()
 EndFunction
 
 Function LoadNonPersistentReferencesAndInit()
@@ -110,7 +116,7 @@ Function LoadNonPersistentReferencesAndInit()
 EndFunction
 
 Function ReplacePropsIfAppropriate()
-    If(((GetAlias(3) as ReferenceAlias).GetRef() as Actor).IsDead() && !SCP_ReaperSoulGemStaticREF)     
+    If(ReapersDead && !SCP_ReaperSoulGemStaticREF)     
         DLC01SoulGemReaperFragment01REF.Disable()
         DLC01SoulGemReaperFragment02REF.Disable()
         DLC01SoulGemReaperFragment03REF.Disable()     

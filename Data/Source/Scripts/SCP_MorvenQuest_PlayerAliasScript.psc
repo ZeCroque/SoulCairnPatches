@@ -3,13 +3,7 @@ Scriptname SCP_MorvenQuest_PlayerAliasScript extends ReferenceAlias
 SoulGem Property SCP_ReaperSoulGemFilled Auto
 
 Event OnPlayerLoadGame()
-    SCP_MorvenQuest_MorvenQuestScript morvenQuestScript = GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript     
-    morvenQuestScript.Update()
-    If(morvenQuestScript.GrimModInstalled)
-        AddInventoryEventFilter(morvenQuestScript.GrimShard)
-    Else
-        RemoveAllInventoryEventFilters()
-    EndIf
+    (GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript).Update()
 EndEvent
 
 Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
@@ -31,6 +25,17 @@ Event OnItemRemoved(Form akBaseItem, int aiItemCount, ObjectReference akItemRefe
     EndIf
 EndEvent
 
-Function RegisterForReapersFilledSoulGem()
-    AddInventoryEventFilter(SCP_ReaperSoulGemFilled)
+Function RegisterForInventoryEvents()
+    SCP_MorvenQuest_MorvenQuestScript morvenQuestScript = GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript     
+    If(morvenQuestScript.GrimModInstalled)
+        AddInventoryEventFilter(morvenQuestScript.GrimShard)
+    Else
+        RemoveInventoryEventFilter(morvenQuestScript.GrimShard)
+    EndIf
+    
+    If(morvenQuestScript.TirashanTeleportMarker)
+        AddInventoryEventFilter(SCP_ReaperSoulGemFilled)
+    Else
+        RemoveInventoryEventFilter(SCP_ReaperSoulGemFilled)
+    Endif
 EndFunction
