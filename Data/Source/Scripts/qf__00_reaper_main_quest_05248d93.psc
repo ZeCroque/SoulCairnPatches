@@ -12,7 +12,6 @@ If(!morvenQuestScript)
 EndIf
 If(morvenQuestScript)
     morvenQuestScript.ReapersDead = True
-	morvenQuestScript.ReplacePropsIfAppropriate()
 EndIf
 ;END CODE
 EndFunction

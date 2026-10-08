@@ -35,6 +35,9 @@ Bool Property ReapersDead Auto
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
 GlobalVariable Property SCP_GrimShardsCount Auto
+ObjectReference Property _00_Reaper_Shrine Auto
+ObjectReference Property SCP_ReaperShrineREF Auto
+ObjectReference Property SCP_ReaperTrigREF Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -108,10 +111,9 @@ Function LoadNonPersistentReferencesAndInit()
         SC_alterREF = Game.GetFormFromFile(0x66DE, "Dawnguard.esm") as ObjectReference        
         DLC01SoulCairnReaperAltarTrigREF = Game.GetFormFromFile(0x66E0, "Dawnguard.esm") as ObjectReference
         TeleportMarkerREF = Game.GetFormFromFile(0x13984, "Dawnguard.esm") as ObjectReference
-
-        If(SC_alterREF) ;Try to replace only if prop loading was successful
-            ReplacePropsIfAppropriate()
-        EndIf
+    EndIf
+    If(SC_alterREF && SC_alterREF.Is3DLoaded()) ;Try to replace only if prop loading was successful
+        ReplacePropsIfAppropriate()
     EndIf
 EndFunction
 
@@ -129,7 +131,15 @@ Function ReplacePropsIfAppropriate()
         SCP_ReaperTeleportTrigREF.Disable()
         
         SCP_ReaperAltarTrigREF = SC_alterREF.PlaceAtMe(SCP_ReaperAltarTrig, 1, True)
-        SC_alterREF.Disable()            
+        SC_alterREF.Disable()        
+        
+        If(GrimModInstalled)
+            SCP_ReaperShrineREF = TeleportMarkerREF.PlaceAtMe(Game.GetFormFromFile(0x10DA59 ,"GrimmerReaper.esp"), 1, True)
+            SCP_ReaperShrineREF.MoveTo(TeleportMarkerREF, 0.0, 700.0, 0.0)
+            SCP_ReaperShrineREF.SetAngle(0.0, 0.0, -90.0)
+
+            SCP_ReaperTrigREF.MoveTo(TeleportMarkerREF, 0.0, 680.0, 100.0)
+        EndIf
     EndIf
 EndFunction
 
@@ -146,6 +156,17 @@ Function LoadTirashanNonPersistentReferencesAndInit()
     EndIf
     If(MorvenHasMoved)
         (GetAlias(0) as ReferenceAlias).GetRef().MoveTo(DremoraMerchantREF)
+    EndIf
+EndFunction
+
+Function LoadSoulCairnNonPersistentReferencesAndInit()
+    If(!_00_Reaper_Shrine)
+        _00_Reaper_Shrine = Game.GetFormFromFile(0x25D1F4, "GrimmerReaper.esp") as ObjectReference
+    Endif
+    If(_00_Reaper_Shrine)
+        _00_Reaper_Shrine.Disable()
+        (Game.GetFormFromFile(0x25D1F5, "GrimmerReaper.esp") as ObjectReference).Disable()
+        (Game.GetFormFromFile(0x25D1F7, "GrimmerReaper.esp") as ObjectReference).Disable()
     EndIf
 EndFunction
 
