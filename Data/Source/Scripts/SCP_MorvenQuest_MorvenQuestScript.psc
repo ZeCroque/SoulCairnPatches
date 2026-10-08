@@ -38,6 +38,8 @@ GlobalVariable Property SCP_GrimShardsCount Auto
 ObjectReference Property _00_Reaper_Shrine Auto
 ObjectReference Property SCP_ReaperShrineREF Auto
 ObjectReference Property SCP_ReaperTrigREF Auto
+Static Property SCP_ReaperSkullStatic Auto
+ObjectReference Property SCP_ReaperSkullStaticREF Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -139,6 +141,12 @@ Function ReplacePropsIfAppropriate()
             SCP_ReaperShrineREF.SetAngle(0.0, 0.0, -90.0)
 
             SCP_ReaperTrigREF.MoveTo(TeleportMarkerREF, 0.0, 680.0, 100.0)
+
+            SCP_ReaperSkullStaticREF = TeleportMarkerREF.PlaceAtme(SCP_ReaperSkullStatic, 1, True)
+            SCP_ReaperSkullStaticREF.MoveTo(TeleportMarkerREF, 0.0, 677.5, 101.0)
+            SCP_ReaperSkullStaticREF.SetAngle(0.0, 0.0, 180.0)
+            SCP_ReaperSkullStaticREF.SetScale(1.1)
+            SCP_ReaperSkullStaticREF.Disable()
         EndIf
     EndIf
 EndFunction
