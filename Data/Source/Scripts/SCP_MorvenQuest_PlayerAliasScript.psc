@@ -1,6 +1,7 @@
 Scriptname SCP_MorvenQuest_PlayerAliasScript extends ReferenceAlias
 
 SoulGem Property SCP_ReaperSoulGemFilled Auto
+MiscObject Property ReaperSkull Auto
 
 Event OnPlayerLoadGame()
     (GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript).Update()
@@ -10,6 +11,10 @@ Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemRefere
     If(akBaseItem == (GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript).GrimShard)
         SCP_MorvenQuest_MorvenQuestScript morvenQuestScript = GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript 
         morvenQuestScript.SCP_GrimShardsCount.SetValueInt(morvenQuestScript.SCP_GrimShardsCount.GetValueInt() + aiItemCount)
+    ElseIf(akBaseItem == ReaperSkull)
+        Actor playerREF = Game.GetPlayer()
+        playerREF.RemoveItem(ReaperSkull, 1, True)
+        playerREF.AddItem(((GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript).GetAlias(13) as ReferenceAlias).GetRef(), 1, True)
     ElseIf(akBaseItem == SCP_ReaperSoulGemFilled)
         Actor playerREF = Game.GetPlayer()
         playerREF.RemoveItem(SCP_ReaperSoulGemFilled, 1, True)
@@ -28,9 +33,9 @@ EndEvent
 Function RegisterForInventoryEvents()
     SCP_MorvenQuest_MorvenQuestScript morvenQuestScript = GetOwningQuest() as SCP_MorvenQuest_MorvenQuestScript     
     If(morvenQuestScript.GrimModInstalled)
+        ReaperSkull = Game.GetFormFromFile(0x756B3, "GrimmerReaper.esp") as MiscObject
         AddInventoryEventFilter(morvenQuestScript.GrimShard)
-    Else
-        RemoveInventoryEventFilter(morvenQuestScript.GrimShard)
+        AddInventoryEventFilter(ReaperSkull)
     EndIf
     
     If(morvenQuestScript.TirashanTeleportMarker)

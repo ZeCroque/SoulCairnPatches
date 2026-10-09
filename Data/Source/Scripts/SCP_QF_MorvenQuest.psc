@@ -2,9 +2,9 @@
 ;NEXT FRAGMENT INDEX 2
 Scriptname SCP_QF_MorvenQuest Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY PORTAL
+;BEGIN ALIAS PROPERTY Morven
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_PORTAL Auto
+ReferenceAlias Property Alias_Morven Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY EmptyReaperSoulGem
@@ -12,29 +12,14 @@ ReferenceAlias Property Alias_PORTAL Auto
 ReferenceAlias Property Alias_EmptyReaperSoulGem Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY FilledReaperSoulGem
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_FilledReaperSoulGem Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY MorvenVendorSit
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_MorvenVendorSit Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY ReaperLairDoor
+;BEGIN ALIAS PROPERTY FilledReaperSoulGem
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_ReaperLairDoor Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Morven
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Morven Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Player
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
+ReferenceAlias Property Alias_FilledReaperSoulGem Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY SkyrimPortal
@@ -47,14 +32,34 @@ ReferenceAlias Property Alias_SkyrimPortal Auto
 ReferenceAlias Property Alias_MorvenVendorContainerREF Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Reaper
+;BEGIN ALIAS PROPERTY Player
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Reaper Auto
+ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY ReaperLairPersistentREF
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_ReaperLairPersistentREF Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Reaper
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Reaper Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY PORTAL
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_PORTAL Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY ReaperLairDoor
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_ReaperLairDoor Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY ReaperSkull
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_ReaperSkull Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_0
