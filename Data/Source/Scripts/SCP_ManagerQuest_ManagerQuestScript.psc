@@ -1,4 +1,4 @@
-Scriptname SCP_MorvenQuest_MorvenQuestScript extends Quest Conditional
+Scriptname SCP_ManagerQuest_ManagerQuestScript extends Quest Conditional
 
 Bool Property CurrencySwapperInstalled Auto Conditional
 ObjectReference Property SCP_MorvenStroudVendorChestREF Auto
@@ -106,7 +106,7 @@ Function Update()
         LoadSkyrimNonPersistentReferencesAndInit()
     EndIf
 
-    (GetAlias(1) as SCP_MorvenQuest_PlayerAliasScript).RegisterForInventoryEvents()
+    (GetAlias(1) as SCP_ManagerQuest_PlayerAliasScript).RegisterForInventoryEvents()
 EndFunction
 
 Function LoadNonPersistentReferencesAndInit()

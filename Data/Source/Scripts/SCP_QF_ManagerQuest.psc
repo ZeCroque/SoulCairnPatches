@@ -1,6 +1,6 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
 ;NEXT FRAGMENT INDEX 2
-Scriptname SCP_QF_MorvenQuest Extends Quest Hidden
+Scriptname SCP_QF_ManagerQuest Extends Quest Hidden
 
 ;BEGIN ALIAS PROPERTY Morven
 ;ALIAS PROPERTY TYPE ReferenceAlias
@@ -64,9 +64,9 @@ ReferenceAlias Property Alias_ReaperSkull Auto
 
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0()
-;BEGIN AUTOCAST TYPE SCP_MorvenQuest_MorvenQuestScript
+;BEGIN AUTOCAST TYPE SCP_ManagerQuest_ManagerQuestScript
 Quest __temp = self as Quest
-SCP_MorvenQuest_MorvenQuestScript kmyQuest = __temp as SCP_MorvenQuest_MorvenQuestScript
+SCP_ManagerQuest_ManagerQuestScript kmyQuest = __temp as SCP_ManagerQuest_ManagerQuestScript
 ;END AUTOCAST
 ;BEGIN CODE
 kMyQuest.Update()

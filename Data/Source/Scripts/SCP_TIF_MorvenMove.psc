@@ -7,12 +7,12 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
     SCP_MorvenWillMove.Show()
-    (SCP_MorvenQuest as SCP_MorvenQuest_MorvenQuestScript).MorvenHasMoved = True
+    (SCP_ManagerQuest as SCP_ManagerQuest_ManagerQuestScript).MorvenHasMoved = True
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
-Quest Property SCP_MorvenQuest Auto
+Quest Property SCP_ManagerQuest Auto
 Message Property SCP_MorvenWillMove Auto

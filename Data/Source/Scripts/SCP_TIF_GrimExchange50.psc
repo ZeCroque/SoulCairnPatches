@@ -6,8 +6,8 @@ Scriptname SCP_TIF_GrimExchange50 Extends TopicInfo Hidden
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-SCP_MorvenQuest_MorvenQuestScript morvenQuestScript = SCP_MorvenQuest as SCP_MorvenQuest_MorvenQuestScript
-Game.GetPlayer().RemoveItem(morvenQuestScript.GrimShard, 50)
+SCP_ManagerQuest_ManagerQuestScript ManagerQuestScript = SCP_ManagerQuest as SCP_ManagerQuest_ManagerQuestScript
+Game.GetPlayer().RemoveItem(ManagerQuestScript.GrimShard, 50)
 Game.GetPlayer().AddItem(SCP_SoulGemShards, 50000)
 ;END CODE
 EndFunction
@@ -15,5 +15,5 @@ EndFunction
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
-Quest Property SCP_MorvenQuest Auto
+Quest Property SCP_ManagerQuest Auto
 Form Property SCP_SoulGemShards Auto
