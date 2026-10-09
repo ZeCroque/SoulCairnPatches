@@ -40,6 +40,7 @@ ObjectReference Property SCP_ReaperShrineREF Auto
 ObjectReference Property SCP_ReaperTrigREF Auto
 Static Property SCP_ReaperSkullStatic Auto
 ObjectReference Property SCP_ReaperSkullStaticREF Auto
+MiscObject Property SCP_ReaperSkullMisc Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -120,7 +121,8 @@ Function LoadNonPersistentReferencesAndInit()
 EndFunction
 
 Function ReplacePropsIfAppropriate()
-    If(ReapersDead && !SCP_ReaperSoulGemStaticREF)     
+    GlobalVariable _00_Reaper_IsDead = Game.GetFormFromFile(0x2767B8, "GrimmerReaper.esp") as GlobalVariable
+    If((ReapersDead || (_00_Reaper_IsDead && _00_Reaper_IsDead.GetValueInt())) && !SCP_ReaperSoulGemStaticREF)     
         DLC01SoulGemReaperFragment01REF.Disable()
         DLC01SoulGemReaperFragment02REF.Disable()
         DLC01SoulGemReaperFragment03REF.Disable()     
@@ -148,6 +150,26 @@ Function ReplacePropsIfAppropriate()
             SCP_ReaperSkullStaticREF.SetScale(1.1)
             SCP_ReaperSkullStaticREF.Disable()
         EndIf
+    EndIf
+    If(_00_Reaper_IsDead && _00_Reaper_IsDead.GetValueInt() && SCP_ReaperShrineREF) ;if cell has been init and the reaper is dead
+        ;Failsafe if player did not loot the skull
+        Actor playerREF =  Game.GetPlayer()
+        If(!playerREF.GetItemCount(SCP_ReaperSkullMisc))
+            playerREF.AddItem((GetAlias(13) as ReferenceAlias).GetRef())
+        EndIf
+
+        ;Prepare lair again
+        DLC01SoulCairnReaperAltarTrigREF.Disable()
+
+        ;Prepare GRIM
+        _00_Reaper_IsDead.SetValueInt(0) ;_00_Reaper_IsDead
+        GlobalVariable _00_Reaper_RankGlobal = Game.GetFormFromFile(0x70564, "GrimmerReaper.esp") as GlobalVariable 
+        If(_00_Reaper_RankGlobal.GetValueInt() < 7)
+            _00_Reaper_RankGlobal.Mod(1.0)
+        EndIf
+        (Game.GetFormFromFile(0x756F0, "GrimmerReaper.esp") as Cell).Reset() ;Reset reaper's king cell
+        (Game.GetFormFromFile(0xA8411, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable Gothric ally
+        (Game.GetFormFromFile(0x29F27E, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable exit door
     EndIf
 EndFunction
 

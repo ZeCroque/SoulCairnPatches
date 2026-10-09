@@ -19,22 +19,27 @@ Event OnActivate(ObjectReference akActivator)
         morvenQuestScript.SCP_ReaperSoulGemStaticREF.Disable()        
         playerRef.AddItem((morvenQuestScript.GetAlias(4) as ReferenceAlias).GetRef())
     Else
-        TriggerFXs()
+
         If(playerRef.GetItemCount(SCP_ReaperSoulGemFilledMisc))
-            playerRef.RemoveItem(SCP_ReaperSoulGemFilledMisc)          
+            morvenQuestScript.SC_alterREF.Enable() 
+            Disable()
+
+            playerRef.RemoveItem(SCP_ReaperSoulGemFilledMisc)  
             morvenQuestScript.SCP_ReaperSoulGemStaticREF.Enable()
-            FXAmbBeamDust01REF.Enable()           
-            morvenQuestScript.SC_alterREF.Enable()  
+            FXAmbBeamDust01REF.Enable()    
+
             morvenQuestScript.SCP_ReaperTeleportTrigREF.Enable()
             morvenQuestScript.SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book, 1, 1)
-            Disable()
+            TriggerFXs()
             SCP_PortalPowered.Show()
         Else
-            SCP_SoulGemLevelInsufficient.Show()
             playerRef.RemoveItem(SCP_ReaperSoulGem, 1, True)    
             ObjectReference emptySoulGem = (morvenQuestScript.GetAlias(7) as ReferenceAlias).GetRef().PlaceAtMe(SCP_ReaperSoulGem, 1, True)
             (morvenQuestScript.GetAlias(4) as ReferenceAlias).ForceRefTo(emptySoulGem)
-            playerRef.AddItem(emptySoulGem, 1, True)            
+            playerRef.AddItem(emptySoulGem, 1, True)  
+            
+            TriggerFXs()
+            SCP_SoulGemLevelInsufficient.Show()          
         EndIf
     EndIf
 EndEvent
