@@ -1,4 +1,4 @@
-Scriptname SCP_ReaperAltarTrigScript extends ObjectReference  
+Scriptname SCP_SoulGemAltarTrigScript extends ObjectReference  
 
 SoulGem Property SCP_ReaperSoulGem Auto
 MiscObject Property SCP_ReaperSoulGemFilledMisc Auto

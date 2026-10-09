@@ -1,4 +1,4 @@
-Scriptname SCP_ReaperTrigScript extends ObjectReference  
+Scriptname SCP_SkullAltarTrigScript extends ObjectReference  
 
 MiscObject Property SCP_ReaperSkullMisc Auto
 Quest Property SCP_ManagerQuest Auto

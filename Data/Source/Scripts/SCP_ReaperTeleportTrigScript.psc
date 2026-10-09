@@ -6,8 +6,8 @@ Event OnTriggerEnter(ObjectReference akActivator)
     SCP_ManagerQuest_ManagerQuestScript ManagerQuestScript = SCP_ManagerQuest as SCP_ManagerQuest_ManagerQuestScript
 	If(ManagerQuestScript.GrimModInstalled && ManagerQuestScript.SCP_ReaperSkullStaticREF.IsEnabled() && akActivator == Game.GetPlayer())
         ManagerQuestScript.SCP_ReaperSkullStaticREF.Disable()        
-        (ManagerQuestScript.SCP_ReaperAltarTrigREF as SCP_ReaperAltarTrigScript).FXAmbBeamDust01REF.Disable()
-        ManagerQuestScript.SCP_ReaperAltarTrigREF.Enable()
+        (ManagerQuestScript.SCP_SoulGemAltarTrigREF as SCP_SoulGemAltarTrigScript).FXAmbBeamDust01REF.Disable()
+        ManagerQuestScript.SCP_SoulGemAltarTrigREF.Enable()
         ManagerQuestScript.SC_alterREF.Disable()
         Disable()
         

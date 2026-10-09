@@ -17,8 +17,8 @@ Static Property SCP_ReaperSoulGemStatic Auto
 ObjectReference Property SCP_ReaperSoulGemStaticREF Auto
 ObjectReference Property SC_alterREF Auto
 ObjectReference Property TeleportMarkerREF Auto
-Activator Property SCP_ReaperAltarTrig Auto
-ObjectReference Property SCP_ReaperAltarTrigREF Auto
+Activator Property SCP_SoulGemAltarTrig Auto
+ObjectReference Property SCP_SoulGemAltarTrigREF Auto
 Activator Property SCP_ReaperTeleportTrig Auto
 ObjectReference Property SCP_ReaperTeleportTrigREF Auto
 ObjectReference Property TirashanTeleportMarker Auto
@@ -37,7 +37,7 @@ Bool Property GrimModInstalled Auto Conditional
 GlobalVariable Property SCP_GrimShardsCount Auto
 ObjectReference Property _00_Reaper_Shrine Auto
 ObjectReference Property SCP_ReaperShrineREF Auto
-ObjectReference Property SCP_ReaperTrigREF Auto
+ObjectReference Property SCP_SkullAltarTrigREF Auto
 Static Property SCP_ReaperSkullStatic Auto
 ObjectReference Property SCP_ReaperSkullStaticREF Auto
 MiscObject Property SCP_ReaperSkullMisc Auto
@@ -134,7 +134,7 @@ Function ReplacePropsIfAppropriate()
         (SCP_ReaperTeleportTrigREF as DLC01TeleportScript).teleportGoalMarker = TirashanTeleportMarker
         SCP_ReaperTeleportTrigREF.Disable()
         
-        SCP_ReaperAltarTrigREF = SC_alterREF.PlaceAtMe(SCP_ReaperAltarTrig, 1, True)
+        SCP_SoulGemAltarTrigREF = SC_alterREF.PlaceAtMe(SCP_SoulGemAltarTrig, 1, True)
         SC_alterREF.Disable()        
         
         If(GrimModInstalled)
@@ -142,7 +142,7 @@ Function ReplacePropsIfAppropriate()
             SCP_ReaperShrineREF.MoveTo(TeleportMarkerREF, 0.0, 700.0, 0.0)
             SCP_ReaperShrineREF.SetAngle(0.0, 0.0, -90.0)
 
-            SCP_ReaperTrigREF.MoveTo(TeleportMarkerREF, 0.0, 680.0, 100.0)
+            SCP_SkullAltarTrigREF.MoveTo(TeleportMarkerREF, 0.0, 680.0, 100.0)
 
             SCP_ReaperSkullStaticREF = TeleportMarkerREF.PlaceAtme(SCP_ReaperSkullStatic, 1, True)
             SCP_ReaperSkullStaticREF.MoveTo(TeleportMarkerREF, 0.0, 677.5, 101.0)
