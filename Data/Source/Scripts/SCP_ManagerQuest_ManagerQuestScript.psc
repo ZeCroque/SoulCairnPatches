@@ -77,9 +77,16 @@ Function Update()
     If(GrimShard)
         GrimModInstalled = True
         SCP_GrimShardsCount.SetValueInt(playerRef.GetItemCount(GrimShard))
+        MiscObject ReaperSkull = Game.GetFormFromFile(0x756B3, "GrimmerReaper.esp") as MiscObject
+        Int reaperSkullCount = playerREF.GetItemCount(ReaperSkull) ;If player looted Reaper's Skull(s) before installing the mod, cleaned everything up
+        If(reaperSkullCount)
+            playerREF.RemoveItem(ReaperSkull, reaperSkullCount, True)
+            playerREF.AddItem((GetAlias(13) as ReferenceAlias).GetRef())
+        EndIf
     Else
         GrimModInstalled = False
-        If(((GetAlias(3) as ReferenceAlias).GetRef() as Actor).IsDead())
+        Actor reaperRef = (GetAlias(3) as ReferenceAlias).GetRef() as Actor
+        If(!reaperRef || reaperRef.IsDead())
             ReapersDead = True
         EndIf
     EndIf
@@ -104,6 +111,7 @@ Function Update()
         LoadNonPersistentReferencesAndInit() ; This calls are here in case the user install the mod while inside the cell
         LoadTirashanNonPersistentReferencesAndInit()
         LoadSkyrimNonPersistentReferencesAndInit()
+        LoadSoulCairnNonPersistentReferencesAndInit()
     EndIf
 
     (GetAlias(1) as SCP_ManagerQuest_PlayerAliasScript).RegisterForInventoryEvents()
@@ -117,6 +125,31 @@ Function LoadNonPersistentReferencesAndInit()
     EndIf
     If(SC_alterREF && SC_alterREF.Is3DLoaded()) ;Try to replace only if prop loading was successful
         ReplacePropsIfAppropriate()
+    EndIf
+
+    If(Game.GetPlayer().GetWorldSpace() != Game.GetFormFromFile(0x2E13A, "GrimmerReaper.esp"))
+        GlobalVariable _00_Reaper_IsDead = Game.GetFormFromFile(0x2767B8, "GrimmerReaper.esp") as GlobalVariable
+        If(_00_Reaper_IsDead && _00_Reaper_IsDead.GetValueInt() && SCP_ReaperShrineREF) ;if cell has been init and the reaper is dead
+            ;Failsafe if player did not loot the skull
+            Actor playerREF =  Game.GetPlayer()
+            If(!playerREF.GetItemCount(SCP_ReaperSkullMisc))
+                playerREF.AddItem((GetAlias(13) as ReferenceAlias).GetRef())
+            EndIf
+
+            ;Prepare lair again
+            DLC01SoulCairnReaperAltarTrigREF.Disable()
+            (SCP_ReaperTeleportTrigREF as DLC01TeleportScript).teleportGoalMarker = TirashanTeleportMarker
+
+            ;Prepare GRIM
+            _00_Reaper_IsDead.SetValueInt(0) ;_00_Reaper_IsDead
+            GlobalVariable _00_Reaper_RankGlobal = Game.GetFormFromFile(0x70564, "GrimmerReaper.esp") as GlobalVariable 
+            If(_00_Reaper_RankGlobal.GetValueInt() < 7)
+                _00_Reaper_RankGlobal.Mod(1.0)
+            EndIf
+            (Game.GetFormFromFile(0x756F0, "GrimmerReaper.esp") as Cell).Reset() ;Reset reaper's king cell
+            (Game.GetFormFromFile(0xA8411, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable Gothric ally
+            (Game.GetFormFromFile(0x29F27E, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable exit door
+        EndIf
     EndIf
 EndFunction
 
@@ -150,26 +183,6 @@ Function ReplacePropsIfAppropriate()
             SCP_ReaperSkullStaticREF.SetScale(1.1)
             SCP_ReaperSkullStaticREF.Disable()
         EndIf
-    EndIf
-    If(_00_Reaper_IsDead && _00_Reaper_IsDead.GetValueInt() && SCP_ReaperShrineREF) ;if cell has been init and the reaper is dead
-        ;Failsafe if player did not loot the skull
-        Actor playerREF =  Game.GetPlayer()
-        If(!playerREF.GetItemCount(SCP_ReaperSkullMisc))
-            playerREF.AddItem((GetAlias(13) as ReferenceAlias).GetRef())
-        EndIf
-
-        ;Prepare lair again
-        DLC01SoulCairnReaperAltarTrigREF.Disable()
-
-        ;Prepare GRIM
-        _00_Reaper_IsDead.SetValueInt(0) ;_00_Reaper_IsDead
-        GlobalVariable _00_Reaper_RankGlobal = Game.GetFormFromFile(0x70564, "GrimmerReaper.esp") as GlobalVariable 
-        If(_00_Reaper_RankGlobal.GetValueInt() < 7)
-            _00_Reaper_RankGlobal.Mod(1.0)
-        EndIf
-        (Game.GetFormFromFile(0x756F0, "GrimmerReaper.esp") as Cell).Reset() ;Reset reaper's king cell
-        (Game.GetFormFromFile(0xA8411, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable Gothric ally
-        (Game.GetFormFromFile(0x29F27E, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable exit door
     EndIf
 EndFunction
 
