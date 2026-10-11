@@ -50,6 +50,7 @@ ObjectReference Property sc_mausoleumcolumn01 Auto
 ObjectReference Property SCP_TirashanBasementTrapdoor Auto
 ObjectReference Property SCP_BoneForgeSummonPoint Auto
 ObjectReference Property SCP_BoneForgeAltarREF Auto
+ObjectReference Property CraftingEnchantingWorbenchREF Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -175,6 +176,12 @@ Function LoadNonPersistentReferencesAndInit()
         necroAltarScript.AltarSound = Game.GetFormFromFile(0xD8F, "ccrmssse001-necrohouse.esl") as Sound
 
         SCP_BoneForgeSummonPoint.Enable() ;Enable parent of all refs
+    EndIf
+
+    Furniture necromanticAltar = Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture
+    If(necromanticAltar)
+        CraftingEnchantingWorbenchREF.Disable() 
+        CraftingEnchantingWorbenchREF.PlaceAtMe(necromanticAltar)
     EndIf
 EndFunction
 
