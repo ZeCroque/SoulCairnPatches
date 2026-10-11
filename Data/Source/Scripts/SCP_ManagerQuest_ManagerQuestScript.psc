@@ -1,5 +1,6 @@
 Scriptname SCP_ManagerQuest_ManagerQuestScript extends Quest Conditional
 
+; Currency Swapper
 Bool Property CurrencySwapperInstalled Auto Conditional
 ObjectReference Property SCP_MorvenStroudVendorChestREF Auto
 LeveledItem Property SCP_ModdedItemsLL Auto
@@ -9,6 +10,7 @@ LeveledItem Property DLC1DeathItemSoulman Auto
 Quest Property DLC1SoulCairnHuskMerchant Auto
 Bool Property DialogQuestHasBeenStopped Auto
 
+; Tirashan
 ObjectReference Property DLC01SoulCairnReaperAltarTrigREF Auto
 ObjectReference Property DLC01SoulGemReaperFragment01REF Auto
 ObjectReference Property DLC01SoulGemReaperFragment02REF Auto
@@ -32,6 +34,7 @@ Bool Property TirashanHasBeenInit Auto Conditional
 Bool Property MorvenHasMoved Auto Conditional
 Bool Property ReapersDead Auto
 
+; Grim
 Form Property GrimShard Auto
 Bool Property GrimModInstalled Auto Conditional
 GlobalVariable Property SCP_GrimShardsCount Auto
@@ -42,6 +45,9 @@ Static Property SCP_ReaperSkullStatic Auto
 ObjectReference Property SCP_ReaperSkullStaticREF Auto
 MiscObject Property SCP_ReaperSkullMisc Auto
 
+; Undeath/Necrohouse + Tirashan
+ObjectReference Property sc_mausoleumcolumn01 Auto
+ObjectReference Property SCP_TirashanBasementTrapdoor Auto
 ObjectReference Property SCP_BoneForgeSummonPoint Auto
 ObjectReference Property SCP_BoneForgeAltarREF Auto
 
@@ -109,10 +115,14 @@ Function Update()
         TirashansSkyrimPortal.Disable()
         (GetAlias(9) as ReferenceAlias).ForceRefTo(TirashansSkyrimPortal)
 
+        ;Register OnCellAttach callback on Tirashan Int Ref
+        (GetAlias(15) as ReferenceAlias).ForceRefTo(Game.GetFormFromFile(0x1B40A0, "Tirashan.esp") as ObjectReference)
+
         (Game.GetFormFromFile(0x1F30FC, "Tirashan.esp") as ObjectReference).Disable() ;Map Marker
 
         LoadNonPersistentReferencesAndInit() ; This calls are here in case the user install the mod while inside the cell
         LoadTirashanNonPersistentReferencesAndInit()
+        LoadTirashanIntNonPersistentReferencesAndInit()
         LoadSkyrimNonPersistentReferencesAndInit()
         LoadSoulCairnNonPersistentReferencesAndInit()
     EndIf
@@ -214,6 +224,17 @@ Function LoadTirashanNonPersistentReferencesAndInit()
     EndIf
     If(MorvenHasMoved)
         (GetAlias(0) as ReferenceAlias).GetRef().MoveTo(DremoraMerchantREF)
+    EndIf
+EndFunction
+
+Function LoadTirashanIntNonPersistentReferencesAndInit()
+    If(!sc_mausoleumcolumn01)      
+        sc_mausoleumcolumn01 = Game.GetFormFromFile(0x217A28, "Tirashan.esp") as ObjectReference        
+    EndIf
+    If(sc_mausoleumcolumn01 && sc_mausoleumcolumn01.Is3DLoaded()) 
+        SCP_TirashanBasementTrapdoor.MoveTo(sc_mausoleumcolumn01, 77.0, 0.0, -10.0)
+        SCP_TirashanBasementTrapdoor.SetScale(0.75)
+        SCP_TirashanBasementTrapdoor.SetAngle(0.0, 0.0, -90.0)
     EndIf
 EndFunction
 
