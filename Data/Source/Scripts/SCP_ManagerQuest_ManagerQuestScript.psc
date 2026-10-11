@@ -42,6 +42,9 @@ Static Property SCP_ReaperSkullStatic Auto
 ObjectReference Property SCP_ReaperSkullStaticREF Auto
 MiscObject Property SCP_ReaperSkullMisc Auto
 
+ObjectReference Property SCP_BoneForgeSummonPoint Auto
+ObjectReference Property SCP_BoneForgeAltarREF Auto
+
 Function Update()
     Actor playerRef = Game.GetPlayer()
 
@@ -150,6 +153,18 @@ Function LoadNonPersistentReferencesAndInit()
             (Game.GetFormFromFile(0xA8411, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable Gothric ally
             (Game.GetFormFromFile(0x29F27E, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable exit door
         EndIf
+    EndIf
+
+    Actor boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as Actor
+    If(boneman)
+        ccRMSSSE001_NecroAltarScript necroAltarScript = SCP_BoneForgeAltarREF as ccRMSSSE001_NecroAltarScript
+        necroAltarScript.BonemanSummon = boneman
+        necroAltarScript.MistmanSummon = Game.GetFormFromFile(0x852, "ccrmssse001-necrohouse.esl") as Actor
+        necroAltarScript.SkeletonSummon = Game.GetFormFromFile(0x873, "ccrmssse001-necrohouse.esl") as Actor
+        necroAltarScript.WrathmanSummon = Game.GetFormFromFile(0x843, "ccrmssse001-necrohouse.esl") as Actor
+        necroAltarScript.AltarSound = Game.GetFormFromFile(0xD8F, "ccrmssse001-necrohouse.esl") as Sound
+
+        SCP_BoneForgeSummonPoint.Enable() ;Enable parent of all refs
     EndIf
 EndFunction
 
