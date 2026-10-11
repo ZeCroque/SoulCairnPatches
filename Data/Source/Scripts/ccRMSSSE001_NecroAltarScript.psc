@@ -1,7 +1,0 @@
-Scriptname ccRMSSSE001_NecroAltarScript extends ObjectReference
-
-Sound Property AltarSound Auto
-ActorBase Property BonemanSummon Auto
-ActorBase Property MistmanSummon Auto
-ActorBase Property SkeletonSummon Auto
-ActorBase Property WrathmanSummon Auto
