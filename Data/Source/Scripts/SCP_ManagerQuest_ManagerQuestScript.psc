@@ -154,14 +154,15 @@ Function LoadNonPersistentReferencesAndInit()
             (Game.GetFormFromFile(0x29F27E, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable exit door
         EndIf
     EndIf
-
-    Actor boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as Actor
+        Debug.Trace("gereg")
+    ActorBase boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as ActorBase
     If(boneman)
+        Debug.Trace("jhgjkrhgrtjb")
         ccRMSSSE001_NecroAltarScript necroAltarScript = SCP_BoneForgeAltarREF as ccRMSSSE001_NecroAltarScript
         necroAltarScript.BonemanSummon = boneman
-        necroAltarScript.MistmanSummon = Game.GetFormFromFile(0x852, "ccrmssse001-necrohouse.esl") as Actor
-        necroAltarScript.SkeletonSummon = Game.GetFormFromFile(0x873, "ccrmssse001-necrohouse.esl") as Actor
-        necroAltarScript.WrathmanSummon = Game.GetFormFromFile(0x843, "ccrmssse001-necrohouse.esl") as Actor
+        necroAltarScript.MistmanSummon = Game.GetFormFromFile(0x852, "ccrmssse001-necrohouse.esl") as ActorBase
+        necroAltarScript.SkeletonSummon = Game.GetFormFromFile(0x873, "ccrmssse001-necrohouse.esl") as ActorBase
+        necroAltarScript.WrathmanSummon = Game.GetFormFromFile(0x843, "ccrmssse001-necrohouse.esl") as ActorBase
         necroAltarScript.AltarSound = Game.GetFormFromFile(0xD8F, "ccrmssse001-necrohouse.esl") as Sound
 
         SCP_BoneForgeSummonPoint.Enable() ;Enable parent of all refs
