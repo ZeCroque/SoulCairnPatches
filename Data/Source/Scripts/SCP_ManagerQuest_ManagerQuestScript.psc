@@ -46,18 +46,21 @@ ObjectReference Property SCP_ReaperSkullStaticREF Auto
 MiscObject Property SCP_ReaperSkullMisc Auto
 
 ; Undeath/Necrohouse + Tirashan
-ObjectReference Property SCP_AlchemyActivatorREF Auto
 ObjectReference Property sc_mausoleumcolumn01 Auto
 ObjectReference Property SCP_TirashanBasementTrapdoor Auto
+
 ObjectReference Property SCP_BoneForgeSummonPoint Auto
 ObjectReference Property SCP_BoneForgeAltarREF Auto
+
 ObjectReference Property CraftingEnchantingWorbenchREF Auto
 ObjectReference Property NecroWorkbenchREF Auto
-ObjectReference Property SCP_LichPhylacteryAct Auto
 ObjectReference Property SCP_LichRitualTrigger Auto
 ObjectReference Property SCP_LichPhylactery Auto
+ObjectReference Property SCP_LichPhylacteryAct Auto
 ObjectReference Property SCP_LichClassicalPhylacteryREF Auto
+
 Activator Property UAP_CauldronAct Auto
+ObjectReference Property SCP_AlchemyActivatorREF Auto
 ObjectReference Property SCP_NecroNightshadeStatic Auto
 ObjectReference Property SCP_NecroBloodrootStatic Auto
 ObjectReference Property SCP_NecroDeathbellStatic Auto
@@ -69,6 +72,11 @@ ObjectReference Property UAP_AlchemyNoteREF Auto
 MiscObject Property UAP_EmptyVial Auto
 ObjectReference[] Property UAP_PlaceholderPotions Auto
 ObjectReference[] Property UAP_EmptyVials Auto
+
+ObjectReference Property SkyHavenBloodBowl01 Auto
+ObjectReference Property NecroBloodBowlREF Auto
+ObjectReference[] Property PlaceholderBanners Auto
+ObjectReference[] Property NecroBanners Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -97,6 +105,7 @@ Function Update()
         EndIf
         If(UAP_EmptyVial)
             SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
+            SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x2AE804, "Undeath.esp"), 0, 1)
         EndIf
 
         DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
@@ -233,11 +242,21 @@ Function LoadNonPersistentReferencesAndInit()
             UAP_AlchemyNoteREF = SCP_PlaceholderNote.PlaceAtMe(UAP_AlchemyNote, 1, True)
             SCP_PlaceholderNote.Disable()
 
-            SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
             Int i = 0
             While(i < UAP_PlaceholderPotions.Length)
                 UAP_EmptyVials[i] = UAP_PlaceholderPotions[i].PlaceAtMe(UAP_EmptyVial, 1, True)
                 UAP_PlaceholderPotions[i].Disable()
+                i += 1
+            EndWhile
+
+            NecroBloodBowlREF = SkyHavenBloodBowl01.PlaceAtMe(Game.GetFormFromFile(0x3F387, "Undeath.esp"), 1, True)
+            SkyHavenBloodBowl01.Disable()
+
+            Form necroBanner = Game.GetFormFromFile(0x891E, "Undeath.esp")
+            i = 0
+            While(i < PlaceholderBanners.Length)
+                NecroBanners[i] = PlaceholderBanners[i].PlaceAtMe(necroBanner, 1, True)
+                PlaceholderBanners[i].Disable()
                 i += 1
             EndWhile
         EndIf
