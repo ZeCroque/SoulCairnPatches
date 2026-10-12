@@ -51,6 +51,8 @@ ObjectReference Property SCP_TirashanBasementTrapdoor Auto
 ObjectReference Property SCP_BoneForgeSummonPoint Auto
 ObjectReference Property SCP_BoneForgeAltarREF Auto
 ObjectReference Property CraftingEnchantingWorbenchREF Auto
+ObjectReference Property SCP_LichPhylacteryAct Auto
+ObjectReference Property SCP_LichRitualTrigger Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -182,6 +184,8 @@ Function LoadNonPersistentReferencesAndInit()
     If(necromanticAltar)
         CraftingEnchantingWorbenchREF.Disable() 
         CraftingEnchantingWorbenchREF.PlaceAtMe(necromanticAltar)
+        (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
+        (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
     EndIf
 EndFunction
 

@@ -9,6 +9,8 @@
      <Import>.\Data\Source\Scripts</Import>
      <Import>H:\ModOrganizer\SkyrimAE\mods\Currency Swapper\Source\Scripts</Import>
      <Import>H:\ModOrganizer\SkyrimAE\mods\Creation Club Script Source\Source\Scripts</Import>
+     <Import>D:\Dev\Mods\Skyrim\UndeathAlternateLichdomPaths\Data\Source\Scripts</Import>
+     <Import>H:\ModOrganizer\SkyrimAE\mods\Undeath - Classical Lichdom v4\Source\Scripts</Import>
    </Imports>
    <Folders>
      <Folder>.\Data\Source\Scripts</Folder>
