@@ -53,6 +53,8 @@ ObjectReference Property SCP_BoneForgeAltarREF Auto
 ObjectReference Property CraftingEnchantingWorbenchREF Auto
 ObjectReference Property SCP_LichPhylacteryAct Auto
 ObjectReference Property SCP_LichRitualTrigger Auto
+ObjectReference Property SCP_LichPhylactery Auto
+ObjectReference Property SCP_LichClassicalPhylacteryREF Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()

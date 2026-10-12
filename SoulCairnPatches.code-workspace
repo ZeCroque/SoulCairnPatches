@@ -2,18 +2,23 @@
 	"folders": 
 	[
 		{
+			"name": "BaseGame",
 			"path": "H:/Games/steamapps/common/Skyrim Special Edition/Data/Source/Scripts"
 		},
 		{
+			"name": "CurrencySwapper",
 			"path": "H:/ModOrganizer/SkyrimAE/mods/Currency Swapper/Source/Scripts"
 		},
 		{
+			"name": "CC",
 			"path": "H:/ModOrganizer/SkyrimAE/mods/Creation Club Script Source/Source/Scripts"
 		},
 		{
+			"name": "UndeathAlternateLichdomPaths",
 			"path": "D:/Dev/Mods/Skyrim/UndeathAlternateLichdomPaths/Data/Source/Scripts"
 		},
 		{
+			"name": "UndeathClassicalLichdom",
 			"path": "H:/ModOrganizer/SkyrimAE/mods/Undeath - Classical Lichdom v4/Source/Scripts"
 		},
 		{
@@ -23,6 +28,7 @@
 			"path": "F:/Documents/My Games/Skyrim Special Edition/Logs"
 		},
 		{
+			"name": "Docs",
 			"path": "C:/Users/ZeCroque/Nextcloud/Workspace/Skyrim/SoulCairnPatches"
 		}
 	]

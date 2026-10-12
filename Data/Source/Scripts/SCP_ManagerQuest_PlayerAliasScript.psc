@@ -44,3 +44,11 @@ Function RegisterForInventoryEvents()
         RemoveInventoryEventFilter(SCP_ReaperSoulGemFilled)
     Endif
 EndFunction
+
+Event OnMagicEffectApply(ObjectReference akCaster, MagicEffect akEffect)
+    SCP_ManagerQuest_ManagerQuestScript ManagerQuestScript = GetOwningQuest() as SCP_ManagerQuest_ManagerQuestScript
+    MagicEffect LichTransformEffect = Game.GetFormFromFile(0xA443, "Undeath.esp") as MagicEffect
+    If(!ManagerQuestScript.SCP_LichClassicalPhylacteryREF && LichTransformEffect && akEffect == LichTransformEffect)
+        ManagerQuestScript.SCP_LichClassicalPhylacteryREF = ManagerQuestScript.SCP_LichPhylactery.PlaceAtMe(Game.GetFormFromFile(0xABA96, "Undeath.esp"), 1, True)
+    EndIf
+EndEvent
