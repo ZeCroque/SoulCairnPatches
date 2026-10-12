@@ -99,9 +99,9 @@ Function Update()
             SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book, 1, 1)
         EndIf
 
-        UAP_EmptyVial = Game.GetFormFromFile(0x151AE, "UndeathAlternateLichdomPaths.esl") as MiscObject
+        UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esl") as MiscObject
         If(!UAP_EmptyVial)
-            UAP_EmptyVial = Game.GetFormFromFile(0x151AE, "UndeathAlternateLichdomPaths.esp") as MiscObject
+            UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esp") as MiscObject
         EndIf
         If(UAP_EmptyVial)
             SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
@@ -201,9 +201,9 @@ Function LoadNonPersistentReferencesAndInit()
         EndIf
     EndIf
 
-    UAP_CauldronAct = Game.GetFormFromFile(0x1A2C3, "UndeathAlternateLichdomPaths.esl") as Activator
+    UAP_CauldronAct = Game.GetFormFromFile(0x1, "UndeathAlternateLichdomPaths.esl") as Activator
     If(!UAP_CauldronAct)
-        UAP_CauldronAct = Game.GetFormFromFile(0x1A2C3, "UndeathAlternateLichdomPaths.esp") as Activator
+        UAP_CauldronAct = Game.GetFormFromFile(0x1, "UndeathAlternateLichdomPaths.esp") as Activator
     EndIf
     If(UAP_CauldronAct)
         ActorBase boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as ActorBase
@@ -235,9 +235,9 @@ Function LoadNonPersistentReferencesAndInit()
             cauldronActivatorScript.StaticSkull = NecroQuest04Skull001
             cauldronActivatorScript.StaticDeathbell = SCP_NecroDeathbellStatic
 
-            Book UAP_AlchemyNote = Game.GetFormFromFile(0x1A2C5, "UndeathAlternateLichdomPaths.esl") as Book
+            Book UAP_AlchemyNote = Game.GetFormFromFile(0x2, "UndeathAlternateLichdomPaths.esl") as Book
             If(!UAP_AlchemyNote)
-                UAP_AlchemyNote = Game.GetFormFromFile(0x1A2C5, "UndeathAlternateLichdomPaths.esp") as Book
+                UAP_AlchemyNote = Game.GetFormFromFile(0x2, "UndeathAlternateLichdomPaths.esp") as Book
             EndIf        
             UAP_AlchemyNoteREF = SCP_PlaceholderNote.PlaceAtMe(UAP_AlchemyNote, 1, True)
             SCP_PlaceholderNote.Disable()
