@@ -46,6 +46,7 @@ ObjectReference Property SCP_ReaperSkullStaticREF Auto
 MiscObject Property SCP_ReaperSkullMisc Auto
 
 ; Undeath/Necrohouse + Tirashan
+Bool Property UndeathClassicalLichdomInstalled Auto
 ObjectReference Property sc_mausoleumcolumn01 Auto
 ObjectReference Property SCP_TirashanBasementTrapdoor Auto
 ObjectReference Property SCP_BoneForgeSummonPoint Auto
@@ -169,25 +170,28 @@ Function LoadNonPersistentReferencesAndInit()
             (Game.GetFormFromFile(0x29F27E, "GrimmerReaper.esp") as ObjectReference).Disable() ;Disable exit door
         EndIf
     EndIf
-    
-    ActorBase boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as ActorBase
-    If(boneman)
-        ccRMSSSE001_NecroAltarScript necroAltarScript = SCP_BoneForgeAltarREF as ccRMSSSE001_NecroAltarScript
-        necroAltarScript.BonemanSummon = boneman
-        necroAltarScript.MistmanSummon = Game.GetFormFromFile(0x852, "ccrmssse001-necrohouse.esl") as ActorBase
-        necroAltarScript.SkeletonSummon = Game.GetFormFromFile(0x873, "ccrmssse001-necrohouse.esl") as ActorBase
-        necroAltarScript.WrathmanSummon = Game.GetFormFromFile(0x843, "ccrmssse001-necrohouse.esl") as ActorBase
-        necroAltarScript.AltarSound = Game.GetFormFromFile(0xD8F, "ccrmssse001-necrohouse.esl") as Sound
 
-        SCP_BoneForgeSummonPoint.Enable() ;Enable parent of all refs
-    EndIf
+    UndeathClassicalLichdomInstalled = Game.GetFormFromFile(0x19D7B, "UndeathFixes.esp") != None
+    If(UndeathClassicalLichdomInstalled)
+        ActorBase boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as ActorBase
+        If(boneman)
+            ccRMSSSE001_NecroAltarScript necroAltarScript = SCP_BoneForgeAltarREF as ccRMSSSE001_NecroAltarScript
+            necroAltarScript.BonemanSummon = boneman
+            necroAltarScript.MistmanSummon = Game.GetFormFromFile(0x852, "ccrmssse001-necrohouse.esl") as ActorBase
+            necroAltarScript.SkeletonSummon = Game.GetFormFromFile(0x873, "ccrmssse001-necrohouse.esl") as ActorBase
+            necroAltarScript.WrathmanSummon = Game.GetFormFromFile(0x843, "ccrmssse001-necrohouse.esl") as ActorBase
+            necroAltarScript.AltarSound = Game.GetFormFromFile(0xD8F, "ccrmssse001-necrohouse.esl") as Sound
 
-    Furniture necromanticAltar = Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture
-    If(necromanticAltar)
-        CraftingEnchantingWorbenchREF.Disable() 
-        CraftingEnchantingWorbenchREF.PlaceAtMe(necromanticAltar)
-        (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
-        (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
+            SCP_BoneForgeSummonPoint.Enable() ;Enable parent of all refs
+        EndIf
+
+        Furniture necromanticAltar = Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture
+        If(necromanticAltar)
+            CraftingEnchantingWorbenchREF.Disable() 
+            CraftingEnchantingWorbenchREF.PlaceAtMe(necromanticAltar)
+            (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
+            (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
+        EndIf
     EndIf
 EndFunction
 
@@ -224,6 +228,15 @@ Function ReplacePropsIfAppropriate()
     EndIf
 EndFunction
 
+Function InitUndeathIfAppropriate()
+    If(UndeathClassicalLichdomInstalled)
+        Quest NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
+        If(NecroLichRitualQuest.GetStage() == 10)
+            NecroLichRitualQuest.SetStage(20)
+        EndIf
+    EndIf
+EndFunction
+
 Function LoadTirashanNonPersistentReferencesAndInit()
     If(!FXDLC1SCTransportal)      
         FXDLC1SCTransportal = Game.GetFormFromFile(0x27433, "Tirashan.esp") as ObjectReference        
@@ -238,6 +251,8 @@ Function LoadTirashanNonPersistentReferencesAndInit()
     If(MorvenHasMoved)
         (GetAlias(0) as ReferenceAlias).GetRef().MoveTo(DremoraMerchantREF)
     EndIf
+
+    InitUndeathIfAppropriate()
 EndFunction
 
 Function LoadTirashanIntNonPersistentReferencesAndInit()
@@ -249,6 +264,8 @@ Function LoadTirashanIntNonPersistentReferencesAndInit()
         SCP_TirashanBasementTrapdoor.SetScale(0.75)
         SCP_TirashanBasementTrapdoor.SetAngle(0.0, 0.0, -90.0)
     EndIf
+
+    InitUndeathIfAppropriate()
 EndFunction
 
 Function LoadSoulCairnNonPersistentReferencesAndInit()
