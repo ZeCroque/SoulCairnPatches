@@ -46,16 +46,29 @@ ObjectReference Property SCP_ReaperSkullStaticREF Auto
 MiscObject Property SCP_ReaperSkullMisc Auto
 
 ; Undeath/Necrohouse + Tirashan
-Bool Property UndeathClassicalLichdomInstalled Auto
+ObjectReference Property SCP_AlchemyActivatorREF Auto
 ObjectReference Property sc_mausoleumcolumn01 Auto
 ObjectReference Property SCP_TirashanBasementTrapdoor Auto
 ObjectReference Property SCP_BoneForgeSummonPoint Auto
 ObjectReference Property SCP_BoneForgeAltarREF Auto
 ObjectReference Property CraftingEnchantingWorbenchREF Auto
+ObjectReference Property NecroWorkbenchREF Auto
 ObjectReference Property SCP_LichPhylacteryAct Auto
 ObjectReference Property SCP_LichRitualTrigger Auto
 ObjectReference Property SCP_LichPhylactery Auto
 ObjectReference Property SCP_LichClassicalPhylacteryREF Auto
+Activator Property UAP_CauldronAct Auto
+ObjectReference Property SCP_NecroNightshadeStatic Auto
+ObjectReference Property SCP_NecroBloodrootStatic Auto
+ObjectReference Property SCP_NecroDeathbellStatic Auto
+ObjectReference Property SCP_NecroHeartStatic Auto
+ObjectReference Property SCP_NecroMushroomStatic Auto
+ObjectReference Property NecroQuest04Skull001 Auto
+ObjectReference Property SCP_PlaceholderNote Auto
+ObjectReference Property UAP_AlchemyNoteREF Auto
+MiscObject Property UAP_EmptyVial Auto
+ObjectReference[] Property UAP_PlaceholderPotions Auto
+ObjectReference[] Property UAP_EmptyVials Auto
 
 Function Update()
     Actor playerRef = Game.GetPlayer()
@@ -76,6 +89,14 @@ Function Update()
 
         If(SCP_ReaperTeleportTrigREF && SCP_ReaperTeleportTrigREF.IsEnabled())
             SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book, 1, 1)
+        EndIf
+
+        UAP_EmptyVial = Game.GetFormFromFile(0x151AE, "UndeathAlternateLichdomPaths.esl") as MiscObject
+        If(!UAP_EmptyVial)
+            UAP_EmptyVial = Game.GetFormFromFile(0x151AE, "UndeathAlternateLichdomPaths.esp") as MiscObject
+        EndIf
+        If(UAP_EmptyVial)
+            SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
         EndIf
 
         DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
@@ -171,8 +192,11 @@ Function LoadNonPersistentReferencesAndInit()
         EndIf
     EndIf
 
-    UndeathClassicalLichdomInstalled = Game.GetFormFromFile(0x19D7B, "UndeathFixes.esp") != None
-    If(UndeathClassicalLichdomInstalled)
+    UAP_CauldronAct = Game.GetFormFromFile(0x1A2C3, "UndeathAlternateLichdomPaths.esl") as Activator
+    If(!UAP_CauldronAct)
+        UAP_CauldronAct = Game.GetFormFromFile(0x1A2C3, "UndeathAlternateLichdomPaths.esp") as Activator
+    EndIf
+    If(UAP_CauldronAct)
         ActorBase boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as ActorBase
         If(boneman)
             ccRMSSSE001_NecroAltarScript necroAltarScript = SCP_BoneForgeAltarREF as ccRMSSSE001_NecroAltarScript
@@ -185,12 +209,37 @@ Function LoadNonPersistentReferencesAndInit()
             SCP_BoneForgeSummonPoint.Enable() ;Enable parent of all refs
         EndIf
 
-        Furniture necromanticAltar = Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture
-        If(necromanticAltar)
+        If(!NecroWorkbenchREF)
             CraftingEnchantingWorbenchREF.Disable() 
-            CraftingEnchantingWorbenchREF.PlaceAtMe(necromanticAltar)
+            NecroWorkbenchREF = CraftingEnchantingWorbenchREF.PlaceAtMe(Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture, 1, True)
             (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
             (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
+            
+            SCP_LichClassicalPhylacteryREF = SCP_LichRitualTrigger.PlaceAtMe(Game.GetFormFromFile(0xABA96, "Undeath.esp") as Furniture, 1, True)
+            
+            SCP_AlchemyActivatorREF = SCP_LichRitualTrigger.PlaceAtMe(UAP_CauldronAct, 1, True)
+            UAP_CauldronActivatorScript cauldronActivatorScript = SCP_AlchemyActivatorREF as UAP_CauldronActivatorScript
+            cauldronActivatorScript.StaticNightshade = SCP_NecroNightshadeStatic
+            cauldronActivatorScript.StaticMushroom = SCP_NecroMushroomStatic
+            cauldronActivatorScript.StaticHeart = SCP_NecroHeartStatic
+            cauldronActivatorScript.StaticBloodroot = SCP_NecroBloodrootStatic
+            cauldronActivatorScript.StaticSkull = NecroQuest04Skull001
+            cauldronActivatorScript.StaticDeathbell = SCP_NecroDeathbellStatic
+
+            Book UAP_AlchemyNote = Game.GetFormFromFile(0x1A2C5, "UndeathAlternateLichdomPaths.esl") as Book
+            If(!UAP_AlchemyNote)
+                UAP_AlchemyNote = Game.GetFormFromFile(0x1A2C5, "UndeathAlternateLichdomPaths.esp") as Book
+            EndIf        
+            UAP_AlchemyNoteREF = SCP_PlaceholderNote.PlaceAtMe(UAP_AlchemyNote, 1, True)
+            SCP_PlaceholderNote.Disable()
+
+            SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
+            Int i = 0
+            While(i < UAP_PlaceholderPotions.Length)
+                UAP_EmptyVials[i] = UAP_PlaceholderPotions[i].PlaceAtMe(UAP_EmptyVial, 1, True)
+                UAP_PlaceholderPotions[i].Disable()
+                i += 1
+            EndWhile
         EndIf
     EndIf
 EndFunction
@@ -229,10 +278,11 @@ Function ReplacePropsIfAppropriate()
 EndFunction
 
 Function InitUndeathIfAppropriate()
-    If(UndeathClassicalLichdomInstalled)
+    If(UAP_CauldronAct)
         Quest NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
         If(NecroLichRitualQuest.GetStage() == 10)
             NecroLichRitualQuest.SetStage(20)
+            (NecroLichRitualQuest as NecroLichTrackingQuest).HasUpgrade = True
         EndIf
     EndIf
 EndFunction
