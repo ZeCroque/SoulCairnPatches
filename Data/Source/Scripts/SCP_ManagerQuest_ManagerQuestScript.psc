@@ -54,6 +54,9 @@ ObjectReference Property SCP_BoneForgeAltarREF Auto
 
 ObjectReference Property CraftingEnchantingWorbenchREF Auto
 ObjectReference Property NecroWorkbenchREF Auto
+ObjectReference Property SCP_NecroEnchanterHelperNPCMarker Auto
+Actor Property SCP_NecroEnchanterHelperNPC Auto
+
 ObjectReference Property SCP_LichRitualTrigger Auto
 ObjectReference Property SCP_LichPhylactery Auto
 ObjectReference Property SCP_LichPhylacteryAct Auto
@@ -219,11 +222,17 @@ Function LoadNonPersistentReferencesAndInit()
         EndIf
 
         If(!NecroWorkbenchREF)
-            CraftingEnchantingWorbenchREF.Disable() 
+            ActorBase UAP_NecroAltarHelperNPC = Game.GetFormFromFile(0x8, "UndeathAlternateLichdomPaths.esl") as ActorBase
+            If(!UAP_NecroAltarHelperNPC)
+                UAP_NecroAltarHelperNPC = Game.GetFormFromFile(0x8, "UndeathAlternateLichdomPaths.esp") as ActorBase
+            EndIf
+            SCP_NecroEnchanterHelperNPC = SCP_NecroEnchanterHelperNPCMarker.PlaceAtMe(UAP_NecroAltarHelperNPC, 1, True) as Actor
+            CraftingEnchantingWorbenchREF.Disable()  
             NecroWorkbenchREF = CraftingEnchantingWorbenchREF.PlaceAtMe(Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture, 1, True)
-            (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
-            (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest
+            (NecroWorkbenchREF as NecroCraftingBenchScript).UAP_NecroAltarHelperNPC = SCP_NecroEnchanterHelperNPC
             
+            (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
+            (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest            
             SCP_LichClassicalPhylacteryREF = SCP_LichRitualTrigger.PlaceAtMe(Game.GetFormFromFile(0xABA96, "Undeath.esp") as Furniture, 1, True)
             
             SCP_AlchemyActivatorREF = SCP_LichRitualTrigger.PlaceAtMe(UAP_CauldronAct, 1, True)
