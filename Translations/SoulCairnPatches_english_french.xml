@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SSTXMLRessources>
+  <Params>
+    <Addon>SoulCairnPatches</Addon>
+    <Source>english</Source>
+    <Dest>french</Dest>
+    <Version>2</Version>
+  </Params>
+  <Content>
+    <String List="0" sID="000001">
+      <EDID>SCP_TirashanExitOptionsPerk</EDID>
+      <REC id="0" idMax="2">PERK:EPF2</REC>
+      <Source>Exit to Soul Cairn</Source>
+      <Dest>Quitter vers le Cairn</Dest>
+    </String>
+    <String List="0" sID="000002">
+      <EDID>SCP_SkullAltarTrig</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Reaper Skull Receptacle</Source>
+      <Dest>Réceptacle du crâne de Faucheur</Dest>
+    </String>
+    <String List="0" sID="000003">
+      <EDID>SCP_MorvenMoveBranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>If you&apos;re interested, I know a quieter place for you to move in.</Source>
+      <Dest>Si vous êtes intéressé, je connais un endroit plus calme où vous pourriez déménager.</Dest>
+    </String>
+    <String List="0" sID="000004">
+      <EDID>SCP_PlacementSoulHuskAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Place</Source>
+      <Dest>Placer</Dest>
+    </String>
+    <String List="0" sID="000005">
+      <EDID>SCP_PlacementFrostSaltsTakeAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Take</Source>
+      <Dest>Prendre</Dest>
+    </String>
+    <String List="0" sID="000006">
+      <EDID>SCP_MorvenGrim10BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 10 Grim Shards.</Source>
+      <Dest>J&apos;aimerais échanger 10 éclats sinistres.</Dest>
+    </String>
+    <String List="0" sID="000007">
+      <EDID>SCP_MorvenGrim50BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 50 Grim Shards.</Source>
+      <Dest>J&apos;aimerais échanger 50 éclats sinistres.</Dest>
+    </String>
+    <String List="0" sID="000009">
+      <EDID>SCP_MorvenHusk10BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 10 Soul Husks.</Source>
+      <Dest>J&apos;aimerais échanger 10 vides d&apos;âme.</Dest>
+    </String>
+    <String List="0" sID="00000C">
+      <EDID>SCP_TirashanDoor</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>...</Source>
+      <Dest>...</Dest>
+    </String>
+    <String List="0" sID="00000D">
+      <EDID>SCP_PlacementHelmetAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Ancient Nordic Helmet</Source>
+      <Dest>Casque nordique antique</Dest>
+    </String>
+    <String List="0" sID="00000E">
+      <EDID>SCP_PlacementSoulHuskAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Soul Husk</Source>
+      <Dest>Vide d&apos;âme</Dest>
+    </String>
+    <String List="0" sID="00000F">
+      <EDID>SCP_NecroSummonerTrigger</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Bone Forge</Source>
+      <Dest>Forge osseuse</Dest>
+    </String>
+    <String List="0" sID="000010">
+      <EDID>SCP_PlacementBoneMealTakeAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Take</Source>
+      <Dest>Prendre</Dest>
+    </String>
+    <String List="0" sID="000011">
+      <EDID>SCP_PlacementFrostSaltsTakeAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Frost Salts</Source>
+      <Dest>Sels de givre</Dest>
+    </String>
+    <String List="0" sID="000012">
+      <EDID>SCP_MorvenHusk50BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 50 Soul Husks.</Source>
+      <Dest>J&apos;aimerais échanger 50 vides d&apos;âme.</Dest>
+    </String>
+    <String List="0" sID="000013">
+      <EDID>SCP_PlacementSoulGemTakeAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Greater Soul Gem</Source>
+      <Dest>Gemme spirituelle supérieure</Dest>
+    </String>
+    <String List="0" sID="000014">
+      <EDID>SCP_PlacementHelmetAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Place</Source>
+      <Dest>Placer</Dest>
+    </String>
+    <String List="0" sID="000015">
+      <EDID>SCP_PlacementSoulGemTakeAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Take</Source>
+      <Dest>Prendre</Dest>
+    </String>
+    <String List="0" sID="000016">
+      <EDID>SCP_ReaperSoulGemFilledMisc</EDID>
+      <REC>MISC:FULL</REC>
+      <Source>Reaper&apos;s Soul Gem (Filled)</Source>
+      <Dest>Gemme spirituelle de Faucheur (Pleine)</Dest>
+    </String>
+    <String List="0" sID="000017">
+      <EDID>SCP_MorvenStroudVendorChest</EDID>
+      <REC>CONT:FULL</REC>
+      <Source>MorvenStroudVendorChest</Source>
+      <Dest>MorvenStroudVendorChest</Dest>
+    </String>
+    <String List="0" sID="000018">
+      <EDID>SCP_PlacementSoulGemAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Greater Soul Gem</Source>
+      <Dest>Gemme spirituelle supérieure</Dest>
+    </String>
+    <String List="0" sID="000019">
+      <EDID>SCP_PlacementFrostSaltsAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Frost Salts</Source>
+      <Dest>Sels de givre</Dest>
+    </String>
+    <String List="0" sID="00001B">
+      <EDID>SCP_PlacementHelmetTakeAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Take</Source>
+      <Dest>Prendre</Dest>
+    </String>
+    <String List="0" sID="00001C">
+      <EDID>SCP_TirashanDoor</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Exit</Source>
+      <Dest>Quitter</Dest>
+    </String>
+    <String List="0" sID="00001D">
+      <EDID>SCP_PlacementBoneMealAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Place</Source>
+      <Dest>Placer</Dest>
+    </String>
+    <String List="0" sID="00001E">
+      <EDID>SCP_MorvenGrim1BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 1 Grim Shard.</Source>
+      <Dest>J&apos;aimerais échanger 1 éclat sinistre.</Dest>
+    </String>
+    <String List="0" sID="00001F">
+      <EDID>SCP_BlackBookPrompt</EDID>
+      <REC id="1" idMax="1">MESG:ITXT</REC>
+      <Source>Read the book</Source>
+      <Dest>Lire le livre</Dest>
+    </String>
+    <String List="0" sID="000020">
+      <EDID>SCP_TirashanExitOptionsPerk</EDID>
+      <REC>PERK:FULL</REC>
+      <Source>TirashanExitOptionsPerk</Source>
+      <Dest>TirashanExitOptionsPerk</Dest>
+    </String>
+    <String List="0" sID="000022">
+      <EDID>SCP_MorvenHusk25BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 25 Soul Husks.</Source>
+      <Dest>J&apos;aimerais échanger 25 vides d&apos;âme.</Dest>
+    </String>
+    <String List="0" sID="000023">
+      <EDID>SCP_ReaperSkullMisc</EDID>
+      <REC>MISC:FULL</REC>
+      <Source>Reaper&apos;s Gemskull</Source>
+      <Dest>Crâne incrusté de Faucheur</Dest>
+    </String>
+    <String List="0" sID="000024">
+      <EDID>SCP_PlacementSoulHuskTakeAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Soul Husk</Source>
+      <Dest>Vide d&apos;âme</Dest>
+    </String>
+    <String List="0" sID="000025">
+      <EDID>SCP_BlackBookPrompt</EDID>
+      <REC id="0" idMax="1">MESG:ITXT</REC>
+      <Source>Take the book</Source>
+      <Dest>Prendre le livre</Dest>
+    </String>
+    <String List="0" sID="000026">
+      <EDID>SCP_TirashanIntTrapdoor</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Tirashan&apos;s Basement</Source>
+      <Dest>Sous-sol de Tirashan</Dest>
+    </String>
+    <String List="0" sID="000027">
+      <EDID>SCP_PhylacteryAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Phylactery</Source>
+      <Dest>Phylactère</Dest>
+    </String>
+    <String List="0" sID="000028">
+      <EDID>SCP_PlacementHelmetTakeAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Ancient Nordic Helmet</Source>
+      <Dest>Casque nordique antique</Dest>
+    </String>
+    <String List="0" sID="00002D">
+      <EDID>SCP_TirashanIntTrapdoor</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Open</Source>
+      <Dest>Ouvrir</Dest>
+    </String>
+    <String List="0" sID="00002E">
+      <EDID>SCP_PlacementBoneMealAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Bone Meal</Source>
+      <Dest>Farine d&apos;os</Dest>
+    </String>
+    <String List="0" sID="000030">
+      <EDID>SCP_SoulGemAltarTrig</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Reaper Soul Gem Receptacle</Source>
+      <Dest>Réceptacle pour gemme spirituelle de Faucheur</Dest>
+    </String>
+    <String List="0" sID="000033">
+      <EDID>SCP_MorvenHusk1BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 1 Soul Husk.</Source>
+      <Dest>J&apos;aimerais échanger 1 vide d&apos;âme.</Dest>
+    </String>
+    <String List="0" sID="000035">
+      <EDID>SCP_PlacementFrostSaltsAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Place</Source>
+      <Dest>Placer</Dest>
+    </String>
+    <String List="0" sID="000036">
+      <EDID>SCP_TirashanExitOptionsPerk</EDID>
+      <REC id="1" idMax="2">PERK:EPF2</REC>
+      <Source>Exit to Valerica&apos;s Study</Source>
+      <Dest>Quitter vers Valerica</Dest>
+    </String>
+    <String List="0" sID="000037">
+      <EDID>SCP_TirashanBasementTrapdoor</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Open</Source>
+      <Dest>Ouvrir</Dest>
+    </String>
+    <String List="0" sID="000038">
+      <EDID>SCP_TirashanExitOptionsPerk</EDID>
+      <REC id="2" idMax="2">PERK:EPF2</REC>
+      <Source>Exit to Icewater Jetty</Source>
+      <Dest>Quitter vers Glaceflots</Dest>
+    </String>
+    <String List="0" sID="000039">
+      <EDID>SCP_PlacementSoulGemAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Place</Source>
+      <Dest>Placer</Dest>
+    </String>
+    <String List="0" sID="00003A">
+      <EDID>SCP_MorvenGrim25BranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange 25 Grim Shards.</Source>
+      <Dest>J&apos;aimerais échanger 25 éclats sinistres.</Dest>
+    </String>
+    <String List="0" sID="00003B">
+      <EDID>SCPTirashanBasement</EDID>
+      <REC>CELL:FULL</REC>
+      <Source>Tirashan&apos;s Basement</Source>
+      <Dest>Sous-sol de Tirashan</Dest>
+    </String>
+    <String List="0" sID="00003C">
+      <EDID>SCP_PlacementSoulHuskTakeAct</EDID>
+      <REC>ACTI:RNAM</REC>
+      <Source>Take</Source>
+      <Dest>Prendre</Dest>
+    </String>
+    <String List="0" sID="00003D">
+      <EDID>SCP_TirashanBasementTrapdoor</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Tirashan&apos;s Basement</Source>
+      <Dest>Sous-sol de Tirashan</Dest>
+    </String>
+    <String List="0" sID="00003E">
+      <EDID>SCP_MorvenPriceAdjustmentPerk</EDID>
+      <REC>PERK:FULL</REC>
+      <Source>Morven Price Adjustment Perk</Source>
+      <Dest>Morven Price Adjustment Perk</Dest>
+    </String>
+    <String List="0" sID="00003F">
+      <EDID>SCP_SoulGemShards</EDID>
+      <REC>MISC:FULL</REC>
+      <Source>Soul Gem Shards</Source>
+      <Dest>Fragments de pierre spirituelle</Dest>
+    </String>
+    <String List="0" sID="000040">
+      <EDID>SCP_ReaperSoulGemFilled</EDID>
+      <REC>SLGM:FULL</REC>
+      <Source>Reaper&apos;s Soul Gem</Source>
+      <Dest>Gemme spirituelle de Faucheur</Dest>
+    </String>
+    <String List="0" sID="000041">
+      <EDID>SCP_ReaperSoulGem</EDID>
+      <REC>SLGM:FULL</REC>
+      <Source>Reaper&apos;s Soul Gem</Source>
+      <Dest>Gemme spirituelle de Faucheur</Dest>
+    </String>
+    <String List="0" sID="000042">
+      <EDID>SCP_BlackBookAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Black Book: Whispers of the Veil</Source>
+      <Dest>Livre noir: Les murmures du voile</Dest>
+    </String>
+    <String List="0" sID="000043">
+      <EDID>SCP_MorvenMerchantBranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>Got anything left to sell?</Source>
+      <Dest>Il vous reste encore quelque chose à vendre ?</Dest>
+    </String>
+    <String List="0" sID="000044">
+      <EDID>SCP_AlchemyAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Cauldron</Source>
+      <Dest>Chaudron</Dest>
+    </String>
+    <String List="0" sID="000045">
+      <EDID>SCP_MorvenGrimBranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange Grim Shards for Soul Gem Shards.</Source>
+      <Dest>J&apos;aimerais échanger des éclats sinistres contre des éclats de gemme spirituelle.</Dest>
+    </String>
+    <String List="0" sID="000047">
+      <EDID>SCP_PlacementBoneMealTakeAct</EDID>
+      <REC>ACTI:FULL</REC>
+      <Source>Bone Meal</Source>
+      <Dest>Farine d&apos;os</Dest>
+    </String>
+    <String List="0" sID="000048">
+      <EDID>SCP_MorvenHuskBranchTopic</EDID>
+      <REC>DIAL:FULL</REC>
+      <Source>I&apos;d like to exchange Soul Husks for Shards.</Source>
+      <Dest>J&apos;aimerais échanger des vides d&apos;âme contre des éclats de gemme spirituelle.</Dest>
+    </String>
+    <String List="1" sID="000008">
+      <EDID>SCP_BoneForgeNoItemFrostSalts</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You don&apos;t have any Frost Salts.</Source>
+      <Dest>Vous n&apos;avez pas de sels de givre.</Dest>
+    </String>
+    <String List="1" sID="00000A">
+      <EDID>SCP_BoneForgeNoItemSoulHusk</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You don&apos;t have any Soul Husk.</Source>
+      <Dest>Vous n&apos;avez pas de vides d&apos;âme.</Dest>
+    </String>
+    <String List="1" sID="00000B">
+      <EDID>SCP_MorvenWillMove</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>Morven will pack up and move to Tirashan when he&apos;s ready.</Source>
+      <Dest>Morven va préparer ses affaires et déménager à Tirashan quand il sera prêt.</Dest>
+    </String>
+    <String List="1" sID="00001A">
+      <EDID>SCP_SoulGemLevelInsufficient</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>The soul gem was not enough to power up the portal.</Source>
+      <Dest>La gemme spirituelle n&apos;a pas suffit à alimenter le portail.</Dest>
+    </String>
+    <String List="1" sID="000029">
+      <EDID>SCP_BoneForgeNoItemBoneMeal</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You don&apos;t have any Bone Meal.</Source>
+      <Dest>Vous n&apos;avez pas de poudre d&apos;os.</Dest>
+    </String>
+    <String List="1" sID="00002A">
+      <EDID>SCP_BoneForgeNoItemHelmet</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You don&apos;t have any Ancient Nordic Helmet.</Source>
+      <Dest>Vous n&apos;avez pas de casque nordique antique.</Dest>
+    </String>
+    <String List="1" sID="00002B">
+      <EDID>SCP_ReaperChallengeCancelled</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You&apos;ve removed the Reaper&apos;s Gemskull from the statue. The central portal now leads again to your own pocket realm.</Source>
+      <Dest>Vous avez enlevé le crâne de Faucheur incrusté de la statue. Le portail central conduit maintenant de nouveau à votre dimension de poche.</Dest>
+    </String>
+    <String List="1" sID="00002C">
+      <EDID>SCP_ReaperChallenged</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You&apos;ve put the Reaper&apos;s Gemskull on the statue. Power up the portal by placing the filled &quot;Reaper&apos;s Soul Gem&quot; on the central Altar, and you&apos;ll face the Reaper again.</Source>
+      <Dest>Vous avez mis le crâne de Faucheur incrusté sur la statue. Alimentez le portail en plaçant la gemme spirituelle de Faucheur remplie sur l&apos;autel central, et vous combattrez à nouveau le Faucheur.</Dest>
+    </String>
+    <String List="1" sID="00002F">
+      <EDID>SCP_BoneForgeNoItemSoulGem</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>You don&apos;t have any Greater Soul Gem.</Source>
+      <Dest>Vous n&apos;avez pas de gemme spirituelle magistrale.</Dest>
+    </String>
+    <String List="1" sID="000031">
+      <EDID>SCP_NoBlackBookMessage</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>The Black Book:Whispers of the Veil is not in your inventory.</Source>
+      <Dest>Le Livre noir: Murmures du voile n&apos;est pas dans votre inventaire.</Dest>
+    </String>
+    <String List="1" sID="000032">
+      <EDID>SCP_BoneForgeNoIngredients</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>The Bone Forge is empty.</Source>
+      <Dest>La forge osseuse est vide.</Dest>
+    </String>
+    <String List="1" sID="000034">
+      <EDID>SCP_BlackBookPrompt</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>What do you want to do?</Source>
+      <Dest>Qu&apos;est-ce que vous allez faire ?</Dest>
+    </String>
+    <String List="1" sID="000046">
+      <EDID>SCP_PortalPowered</EDID>
+      <REC>MESG:DESC</REC>
+      <Source>The ritual succeeded. The portal in front should be opened.</Source>
+      <Dest>Le rituel a réussi. Le portail devant devrait être ouvert.</Dest>
+    </String>
+  </Content>
+</SSTXMLRessources>
