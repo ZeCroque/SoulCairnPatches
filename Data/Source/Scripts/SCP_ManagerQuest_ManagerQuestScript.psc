@@ -334,16 +334,18 @@ Function LoadTirashanNonPersistentReferencesAndInit()
 EndFunction
 
 Function LoadTirashanIntNonPersistentReferencesAndInit()
-    If(!sc_mausoleumcolumn01)      
-        sc_mausoleumcolumn01 = Game.GetFormFromFile(0x217A28, "Tirashan.esp") as ObjectReference        
-    EndIf
-    If(sc_mausoleumcolumn01 && sc_mausoleumcolumn01.Is3DLoaded()) 
-        SCP_TirashanBasementTrapdoor.MoveTo(sc_mausoleumcolumn01, 77.0, 0.0, -10.0)
-        SCP_TirashanBasementTrapdoor.SetScale(0.75)
-        SCP_TirashanBasementTrapdoor.SetAngle(0.0, 0.0, -90.0)
-    EndIf
+    If(UAP_EmptyVial)
+        If(!sc_mausoleumcolumn01)      
+            sc_mausoleumcolumn01 = Game.GetFormFromFile(0x217A28, "Tirashan.esp") as ObjectReference        
+        EndIf
+        If(sc_mausoleumcolumn01 && sc_mausoleumcolumn01.Is3DLoaded()) 
+            SCP_TirashanBasementTrapdoor.MoveTo(sc_mausoleumcolumn01, 77.0, 0.0, -10.0)
+            SCP_TirashanBasementTrapdoor.SetScale(0.75)
+            SCP_TirashanBasementTrapdoor.SetAngle(0.0, 0.0, -90.0)
+        EndIf
 
-    InitUndeathIfAppropriate()
+        InitUndeathIfAppropriate()
+    EndIf
 EndFunction
 
 Function LoadSoulCairnNonPersistentReferencesAndInit()
