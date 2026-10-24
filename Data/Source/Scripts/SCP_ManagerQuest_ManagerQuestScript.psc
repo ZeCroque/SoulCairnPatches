@@ -108,7 +108,12 @@ Function Update()
         EndIf
         If(UAP_EmptyVial)
             SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
-            SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x2AE804, "Undeath.esp"), 0, 1)
+        EndIf
+
+        Form bloodRoot = Game.GetFormFromFile(0x2AE804, "Undeath.esp")
+        If(bloodRoot)
+            SCP_ModdedItemsLL.AddForm(bloodRoot, 0, 1)
+            SCP_ModdedItemsLL.AddForm( Game.GetFormFromFile(0xABA90, "Undeath.esp"), 0, 1)
         EndIf
 
         DLC1DeathItemSoulman.AddForm(SCP_LootSoulGemShards75, 1, 1)
