@@ -84,6 +84,11 @@ ObjectReference[] Property NecroBanners Auto
 Function Update()
     Actor playerRef = Game.GetPlayer()
 
+    UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esl") as MiscObject
+    If(!UAP_EmptyVial)
+        UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esp") as MiscObject
+    EndIf
+
     CurrencySwapperInstalled = SEA_BarterFunctions.SetCurrency(Game.GetForm(0x104B3F)) ;Fork misc item, just for testing purpose, it will return true if the mod is installed
     SEA_BarterFunctions.ResetCurrency()
     If(CurrencySwapperInstalled)
@@ -102,10 +107,6 @@ Function Update()
             SCP_ModdedItemsLL.AddForm(Game.GetFormFromFile(0x1F30FB, "Tirashan.esp") as Book, 1, 1)
         EndIf
 
-        UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esl") as MiscObject
-        If(!UAP_EmptyVial)
-            UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esp") as MiscObject
-        EndIf
         If(UAP_EmptyVial)
             SCP_ModdedItemsLL.AddForm(UAP_EmptyVial, 0, 5)
         EndIf
@@ -238,7 +239,7 @@ Function LoadNonPersistentReferencesAndInit()
             
             (SCP_LichPhylacteryAct as NecroLichRitualPhylacteryActSCRIPT).Phylactery = Game.GetFormFromFile(0xA6AB3, "Undeath.esp") as MiscObject
             (SCP_LichRitualTrigger as NecroLichRitualCircleTriggerSCRIPT).NecroLichRitualQuest = Game.GetFormFromFile(0x19EC8, "Undeath.esp") as Quest            
-            SCP_LichClassicalPhylacteryREF = SCP_LichRitualTrigger.PlaceAtMe(Game.GetFormFromFile(0xABA96, "Undeath.esp") as Furniture, 1, True)
+            SCP_LichClassicalPhylacteryREF = SCP_LichRitualTrigger.PlaceAtMe(Game.GetFormFromFile(0xABA96, "Undeath.esp") as Activator, 1, True)
             
             SCP_AlchemyActivatorREF = SCP_LichRitualTrigger.PlaceAtMe(UAP_CauldronAct, 1, True)
             UAP_CauldronActivatorScript cauldronActivatorScript = SCP_AlchemyActivatorREF as UAP_CauldronActivatorScript
