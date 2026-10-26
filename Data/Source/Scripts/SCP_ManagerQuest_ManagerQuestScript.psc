@@ -84,10 +84,7 @@ ObjectReference[] Property NecroBanners Auto
 Function Update()
     Actor playerRef = Game.GetPlayer()
 
-    UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esl") as MiscObject
-    If(!UAP_EmptyVial)
-        UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esp") as MiscObject
-    EndIf
+    UAP_EmptyVial = Game.GetFormFromFile(0x3, "UndeathAlternateLichdomPaths.esp") as MiscObject
 
     CurrencySwapperInstalled = SEA_BarterFunctions.SetCurrency(Game.GetForm(0x104B3F)) ;Fork misc item, just for testing purpose, it will return true if the mod is installed
     SEA_BarterFunctions.ResetCurrency()
@@ -210,10 +207,8 @@ Function LoadNonPersistentReferencesAndInit()
         EndIf
     EndIf
 
-    UAP_CauldronAct = Game.GetFormFromFile(0x1, "UndeathAlternateLichdomPaths.esl") as Activator
-    If(!UAP_CauldronAct)
-        UAP_CauldronAct = Game.GetFormFromFile(0x1, "UndeathAlternateLichdomPaths.esp") as Activator
-    EndIf
+
+    UAP_CauldronAct = Game.GetFormFromFile(0x1, "UndeathAlternateLichdomPaths.esp") as Activator
     If(UAP_CauldronAct)
         ActorBase boneman = Game.GetFormFromFile(0x863, "ccrmssse001-necrohouse.esl") as ActorBase
         If(boneman)
@@ -228,10 +223,7 @@ Function LoadNonPersistentReferencesAndInit()
         EndIf
 
         If(!NecroWorkbenchREF)
-            ActorBase UAP_NecroAltarHelperNPC = Game.GetFormFromFile(0x8, "UndeathAlternateLichdomPaths.esl") as ActorBase
-            If(!UAP_NecroAltarHelperNPC)
-                UAP_NecroAltarHelperNPC = Game.GetFormFromFile(0x8, "UndeathAlternateLichdomPaths.esp") as ActorBase
-            EndIf
+            ActorBase UAP_NecroAltarHelperNPC = Game.GetFormFromFile(0x8, "UndeathAlternateLichdomPaths.esp") as ActorBase
             SCP_NecroEnchanterHelperNPC = SCP_NecroEnchanterHelperNPCMarker.PlaceAtMe(UAP_NecroAltarHelperNPC, 1, True) as Actor
             CraftingEnchantingWorbenchREF.Disable()  
             NecroWorkbenchREF = CraftingEnchantingWorbenchREF.PlaceAtMe(Game.GetFormFromFile(0xA6AB4, "Undeath.esp") as Furniture, 1, True)
@@ -249,12 +241,8 @@ Function LoadNonPersistentReferencesAndInit()
             cauldronActivatorScript.StaticBloodroot = SCP_NecroBloodrootStatic
             cauldronActivatorScript.StaticSkull = NecroQuest04Skull001
             cauldronActivatorScript.StaticDeathbell = SCP_NecroDeathbellStatic
-
-            Book UAP_AlchemyNote = Game.GetFormFromFile(0x2, "UndeathAlternateLichdomPaths.esl") as Book
-            If(!UAP_AlchemyNote)
-                UAP_AlchemyNote = Game.GetFormFromFile(0x2, "UndeathAlternateLichdomPaths.esp") as Book
-            EndIf        
-            UAP_AlchemyNoteREF = SCP_PlaceholderNote.PlaceAtMe(UAP_AlchemyNote, 1, True)
+     
+            UAP_AlchemyNoteREF = SCP_PlaceholderNote.PlaceAtMe(Game.GetFormFromFile(0x2, "UndeathAlternateLichdomPaths.esp") as Book, 1, True)
             SCP_PlaceholderNote.Disable()
 
             Int i = 0
