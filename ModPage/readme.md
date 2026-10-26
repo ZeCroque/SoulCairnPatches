@@ -113,6 +113,7 @@ No known incompatibility. Please let me know if you find any.
 - Thanks to the authors of the tools listed below
 - Thanks to xtcrefugee for answering my questions about mid/small masters on the Starfield Modding Discord
 - Thanks to ThreeTen for their [Spawnable Triggerboxes](https://www.nexusmods.com/skyrim/mods/61245) modding resource.
+- Thanks to Betalille for their [Soul Cairn Shack - Player Home](https://www.nexusmods.com/skyrimspecialedition/mods/53596) mod which has been the template for the basement cell.
 
 ## 10. TOOLS USED
 
