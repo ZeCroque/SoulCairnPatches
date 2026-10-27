@@ -45,7 +45,10 @@ The housing relies on the great [Tirashan - Necromancer Home SSE by Elianora](ht
 If you use the [G.R.I.M.](https://www.nexusmods.com/skyrimspecialedition/mods/41816) mod, you will have to beat the Reaper again in its oblivion realm before interacting with the central altar. The skull altar added by this mod is also moved from the outside to the inside of the lair, and you will change the destination of the portal when interacting with it. When interacting, you'll place/remove the "Reaper Gem Skull" on/from it. The fight inside the lair will never trigger again. If you leave the Reaper's realm without looting its skull, it will be added to your inventory to make sure you're not soft-locked. It's now a quest item and weights nothing.
 Everything is retroactive if you've already beaten the Reaper on your savegame.
 
-About the house location itself now, the daedra merchant in  the entrance has been removed. You instead have the option to ask Morven Stroud to move here.
+About the house location itself now, the daedra merchant in  the entrance has been removed. You instead have the option to ask Morven Stroud to move here. Also, the exit portal have multiple destinations:
+- Soul Cairn (Reaper's Lair)
+- Valerica's Study (Volkihar Castle)
+- Icewater Jetty (Skyrim)
 
 Finally, if you use my mod [Undeath Alternate Lichdom Paths](), you'll find a trap next to the staircase that leads to a new basement cell, containing:
 - A Necromantic Altar to craft your Phylactery and so on
@@ -115,6 +118,12 @@ No known incompatibility. Please let me know if you find any.
 - Thanks to ThreeTen for their [Spawnable Triggerboxes](https://www.nexusmods.com/skyrim/mods/61245) modding resource.
 - Thanks to Betalille for their [Soul Cairn Shack - Player Home](https://www.nexusmods.com/skyrimspecialedition/mods/53596) mod which has been the template for the basement cell.
 
+*Mods used while taking screenshots:*
+- [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604)
+- [SkyHUD](https://www.nexusmods.com/skyrimspecialedition/mods/463)
+- [Dear Diary Dark Mode - SkyUI Menus Replacer SE](https://www.nexusmods.com/skyrimspecialedition/mods/60837)
+- [Oblivionesque Category Icons For SkyUI SE](https://www.nexusmods.com/skyrimspecialedition/mods/29773)
+
 ## 10. TOOLS USED
 
 - Creation Kit
@@ -134,14 +143,4 @@ You can find the source code [here](https://github.com/ZeCroque/SoulCairnPatches
 
 ## 12. FEEDBACK
 
-*Found a bug or have an idea for new features? Let me know in NexusMods' comment section or on my [Discord server](https://discord.gg/K9Jk4y2tjJ)!*
-
-CREATIONS_FOOTER
-. FEEDBACK & MORE
-
-Found a bug or have an idea for new features? Needs more info? Go to my Discord server!
-Discord: https://discord.gg/K9Jk4y2tjJ 
-
-Want to know more about me and my other projects? Check my links!
-LinkTree: https://linktr.ee/zecroque
-CREATIONS_FOOTER_END
+*Found a bug or have an idea for new features? Let me know in the comment section!*
