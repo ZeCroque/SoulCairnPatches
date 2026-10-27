@@ -105,9 +105,9 @@ No known incompatibility. Please let me know if you find any.
 
 ## 8. MY OTHER MODS
 
-- [Undeath - Alternate Lichdom Paths]()
-- [Undeath - Shouts and Hotkeys Enabled]()
-- [Prelude To Purgatory - Tweaks]()
+- [Undeath - Alternate Lichdom Paths](https://www.nexusmods.com/skyrimspecialedition/mods/197102)
+- [Undeath - Shouts and Hotkeys Enabled](https://www.nexusmods.com/skyrimspecialedition/mods/197101)
+- [Prelude To Purgatory - Tweaks](https://www.nexusmods.com/skyrimspecialedition/mods/197104)
 
 ## 9. CREDITS
 
