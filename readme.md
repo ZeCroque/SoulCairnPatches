@@ -52,7 +52,7 @@ About the house location itself now, the daedra merchant in  the entrance has be
 - Valerica's Study (Volkihar Castle)
 - Icewater Jetty (Skyrim)
 
-Finally, if you use my mod [Undeath Alternate Lichdom Paths](), you'll find a trap next to the staircase that leads to a new basement cell, containing:
+Finally, if you use my mod [Undeath Alternate Lichdom Paths](), you'll find a trapdoor next to the staircase that leads to a new basement cell, containing:
 - A Necromantic Altar to craft your Phylactery and so on
 - An infernal alchemy cauldron to create Namira's Corrosion or the Embalming Essence
 - An altar for placing your Phylactery and a ritual site
@@ -107,9 +107,9 @@ No known incompatibility. Please let me know if you find any.
 
 ## 8. MY OTHER MODS
 
-- [Undeath - Alternate Lichdom Paths]()
-- [Undeath - Shouts and Hotkeys Enabled]()
-- [Prelude To Purgatory - Tweaks]()
+- [Undeath - Alternate Lichdom Paths](https://www.nexusmods.com/skyrimspecialedition/mods/197102)
+- [Undeath - Shouts and Hotkeys Enabled](https://www.nexusmods.com/skyrimspecialedition/mods/197101)
+- [Prelude To Purgatory - Tweaks](https://www.nexusmods.com/skyrimspecialedition/mods/197104)
 
 ## 9. CREDITS
 
